@@ -49,3 +49,27 @@
 
 // // console.log('test we faild shuld be true')
 // console.log([1,'[',']'].sameStructureAs(['[',']',1]))
+
+
+function nextSmaller(n) {
+    let cash = String(n).split('');
+    const minValue = n - cash.slice(1, cash.length).join('');
+
+    for(let i = n-1; i >= minValue; i--){
+        let newNumArray = i.toString().split('');
+        let counter = 0;
+        for (let j=0; j<newNumArray.length; j++) {
+        if (cash.indexOf(newNumArray[j]) < 0)
+            break;
+        counter++
+        cash.splice(cash.indexOf(newNumArray[j]), 1)
+        if (counter === cash.length) {
+            return i;
+        }
+        }
+        cash = n.toString().split("");
+    }
+    return -1;
+  }
+
+  console.log(nextSmaller(1243))
