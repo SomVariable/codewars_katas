@@ -159,3 +159,43 @@
 
 // const getCount = (str) => (str.match(/a|e|i|o|u/gi) || []).length;
 //   console.log(getCount("sfsf"))
+
+//--------------------------------------------------------------------------------------------
+// _______
+//|6 kata |
+//|_______|
+//The main idea is to count all the occurring characters in a string. If you have a string like aba, then the result should be {'a': 2, 'b': 1}.
+//What if the string is empty? Then the result should be empty object literal, {}.
+
+// function count (string) {  
+//     let obj= {}; 
+  
+//     string.split('').forEach(elem=>obj[elem] ? obj[elem]++: obj[elem] = 1  ); 
+  
+//     return obj; 
+//    } 
+
+//-----------------------------------------------------------------------------------------------------
+// _______
+//|6 kata |
+//|_______|
+//Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, which is the number of times you must multiply the digits in num until you reach a single digit.
+//For example (Input --> Output):
+
+//39 --> 3 (because 3*9 = 27, 2*7 = 14, 1*4 = 4 and 4 has only one digit)
+//999 --> 4 (because 9*9*9 = 729, 7*2*9 = 126, 1*2*6 = 12, and finally 1*2 = 2)
+//4 --> 0 (because 4 is already a one-digit number)
+
+// function persistence(num) {
+//     const numToStr = String(num)
+
+//     return numToStr.length === 1?0:1 + persistence(numToStr
+//                                                           .split('')
+//                                                           .reduce((reducer, number) => reducer * number), 1)
+//   }
+
+
+// console.log(persistence(39));
+// console.log(persistence(4));
+// console.log(persistence(25));
+// console.log(persistence(999));
