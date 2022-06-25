@@ -1,5 +1,5 @@
 // _______
-//|4 kata |
+//|4 kyu |
 //|_______|
 //Complete the function/method (depending on the language) to return true/True when its argument is an array that has the same nesting structures
 //and same corresponding length of nested arrays as the first array.
@@ -54,7 +54,7 @@
 
 //--------------------------------------------------------------------------------------------------------------
 // _______
-//|4 kata |
+//|4 kyu |
 //|_______|
 //Write a function that takes a positive integer and returns the next smaller positive integer containing the same digits.
 //Return -1 (for Haskell: return Nothing, for Rust: return None), when there is no smaller number that contains the same digits. Also return -1 when the next smaller number with the same digits would require the leading digit to be zero.
@@ -81,9 +81,9 @@
 
 //-----------------------------------------------------------------------------------------------------------------------------
 // _______
-//|7 kata |
+//|7 kyu |
 //|_______|
-//This is a kata series that you can only solve using recursion.
+//This is a kyu series that you can only solve using recursion.
 //##1 - Factorial
 //In mathematics, the factorial of a non-negative integer n, denoted by n!, is the product of all positive integers less than or equal to n. For example,
 //5! = 5 * 4 * 3 * 2 * 1 = 120.
@@ -112,7 +112,7 @@
 
 //-----------------------------------------------------------------------------------------------
 // _______
-//|7 kata |
+//|7 kyu |
 //|_______|
 //A non-empty array a of length n is called an array of all possibilities if it contains all numbers between [0,a.length-1].
 //Write a method named isAllPossibilities that accepts an integer array and returns true if the array is an array of all possibilities, else false.
@@ -148,13 +148,13 @@
 
 
 //Return the number (count) of vowels in the given string.
-//We will consider a, e, i, o, u as vowels for this Kata (but not y).
+//We will consider a, e, i, o, u as vowels for this kyu (but not y).
 //The input string will only consist of lower case letters and/or spaces.
 
 
 //-----------------------------------------------------------------------------------------------
 // _______
-//|7 kata |
+//|7 kyu |
 //|_______|
 
 // const getCount = (str) => (str.match(/a|e|i|o|u/gi) || []).length;
@@ -162,7 +162,7 @@
 
 //--------------------------------------------------------------------------------------------
 // _______
-//|6 kata |
+//|6 kyu |
 //|_______|
 //The main idea is to count all the occurring characters in a string. If you have a string like aba, then the result should be {'a': 2, 'b': 1}.
 //What if the string is empty? Then the result should be empty object literal, {}.
@@ -177,7 +177,7 @@
 
 //-----------------------------------------------------------------------------------------------------
 // _______
-//|6 kata |
+//|6 kyu |
 //|_______|
 //Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, which is the number of times you must multiply the digits in num until you reach a single digit.
 //For example (Input --> Output):
@@ -199,3 +199,89 @@
 // console.log(persistence(4));
 // console.log(persistence(25));
 // console.log(persistence(999));
+
+
+//------------------------------------------------------------------------------------------------------------------
+
+//Write a function which makes a list of strings representing all of the ways you can balance n pairs of parentheses
+// _______
+//|4 kyu |
+//|_______|
+
+// function balancedParens(n) {
+//     const result = []
+//     const generateParenthesis = (n, open, close, s, ans) => {
+//         if(open == n && close == n){
+//             console.log(s)
+//             result.push(s);
+//             return;
+//         } 
+  
+//         if(open < n)
+//         {
+//             console.log('first it four times')
+//             generateParenthesis(n, open + 1, close, s + "(", ans);
+//         }
+  
+//         if(close < open)
+//         {
+//             console.log('then it four times')
+//             generateParenthesis(n, open, close + 1, s + ")", ans);
+//         }    
+//     }
+//     generateParenthesis(n, 0, 0, "", result);
+//     return result;
+// }
+
+
+// console.log( balancedParens(0).sort() );
+// console.log( balancedParens(1).sort() );
+// console.log( balancedParens(2).sort() );
+// console.log( balancedParens(3).sort() );
+//console.log( balancedParens(4).sort() );
+
+//----------------------------------------------------------------------------------------------------------------------
+// _______
+//|5 kyu |
+//|_______|
+//Write a function that when given a URL as a string, parses out just the domain name and returns it as a string. For example:
+//* url = "http://github.com/carbonfive/raygun" -> domain name = "github"
+//* url = "http://www.zombie-bites.com"         -> domain name = "zombie-bites"
+//* url = "https://www.cnet.com"                -> domain name = cnet"
+
+// const domainName = (url) => url.replace(/(https?:\/\/)?(www\.)?/, '').split('.')[0]
+
+//---------------------------------------------------------------------------------------------------------------
+// _______
+//|5 kyu  |
+//|_______|
+//This time we want to write calculations using functions and get the results. Let's have a look at some examples:
+
+//seven(times(five())); // must return 35
+//four(plus(nine())); // must return 13
+//eight(minus(three())); // must return 5
+//six(dividedBy(two())); // must return 3
+//Requirements:
+
+//There must be a function for each number from 0 ("zero") to 9 ("nine")
+//There must be a function for each of the following mathematical operations: plus, minus, times, dividedBy
+//Each calculation consist of exactly one operation and two numbers
+//The most outer function represents the left operand, the most inner function represents the right operand
+//Division should be integer division. For example, this should return 2, not 2.666666...:
+
+
+// const zero = (func) =>   func ? func(0) : 0;
+// const one = (func) =>    func ? func(1) : 1;
+// const two = (func) =>    func ? func(2) : 2;
+// const three = (func) =>  func ? func(3) : 3;
+// const four = (func) =>   func ? func(4) : 4;
+// const five = (func) =>   func ? func(5) : 5;
+// const six = (func) =>    func ? func(6) : 6;
+// const seven = (func) =>  func ? func(7) : 7;
+// const eight = (func) =>  func ? func(8) : 8;
+// const nine = (func) =>   func ? func(9) : 9;
+
+// const plus= ( b ) => ( a ) => a + b; 
+// const minus= ( b ) => ( a ) => a - b; 
+// const times= ( b ) =>  ( a ) => a * b; 
+// const dividedBy= ( b ) => ( a ) => Math.floor(a / b) ;
