@@ -285,3 +285,114 @@
 // const minus= ( b ) => ( a ) => a - b; 
 // const times= ( b ) =>  ( a ) => a * b; 
 // const dividedBy= ( b ) => ( a ) => Math.floor(a / b) ;
+
+
+//---------------------------------------------------------------------------------------------------
+// _______
+//|5 kyu  |
+//|_______|
+
+// In testing, a spy function is one that keeps track of various metadata regarding its invocations. Some examples of properties that a spy might track include:
+
+// Whether it was invoked
+// How many times it was invoked
+// What arguments it was called with
+// What contexts it was called in
+// What values it returned
+// Whether it threw an error
+// For this kata, implement a spyOn function which takes any function func as a parameter and returns a spy for func. 
+//The returned spy must be callable in the same manner as the original func, and include the following additional properties/methods:
+
+// .callCount() — returns the number of times spy has been called
+// .wasCalledWith(val) – returns true if spy was ever called with val, else returns false.
+// .returned(val) — returns true if spy ever returned val, else returns false
+// Below is a specific example of how spyOn might work in the wild.
+
+
+// function spyOn (func) {
+//     const state = {
+//       called: 0,
+//       calledValue: new Set(),
+//       returnedValue: new Set()
+//     }
+    
+//     const spy = (...args) => {
+//       const funcCall = func.apply(this, args)
+//       state.returnedValue.add(funcCall)
+//       state.called += 1;
+      
+//       args.forEach((num, index) => state.calledValue.add(args[index]))
+      
+//       return funcCall
+//     }
+    
+//     spy.callCount = () => state.called
+  
+//     spy.returned = (num) => state.returnedValue.has(num)
+  
+//     spy.wasCalledWith = (num) => state.calledValue.has(num)
+    
+//     return spy
+    
+//   }
+//   function returns1 () { return 1; }
+
+// var spy = spyOn(returns1);
+
+// console.log(spy.callCount());
+// console.log(spy.returned(1));
+// console.log(spy.wasCalledWith('hello'));  
+// spy('hello', 'hi', 'howdy');
+// spy('goodbye', 'bye', 'see ya');
+
+// console.log(spy.callCount());
+// console.log(spy.returned(1));
+// console.log(spy.wasCalledWith('hi'));
+// console.log(spy.wasCalledWith('bye'));
+
+// ---------------------------------------------------------------------------------------------------------------------------------
+// _______
+//|7 kyu  |
+//|_______|
+// Complete the solution so that it returns true if the first argument(string) passed in ends with the 2nd argument (also a string).
+
+// Examples:
+
+// solution('abc', 'bc') // returns true
+// solution('abc', 'd') // returns false
+
+//const solution = (str1, str2) => str1.substring(str1.length - str2.length) === str2
+
+
+// ---------------------------------------------------------------------------------------------------------------------------------
+// _______
+//|6 kyu  |
+//|_______|
+
+// Welcome.
+// In this kata you are required to, given a string, replace every letter with its position in the alphabet.
+// If anything in the text isn't a letter, ignore it and don't return it.
+// "a" = 1, "b" = 2, etc.
+// Example
+// alphabetPosition("The sunset sets at twelve o' clock.")
+// Should return "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11" ( as a string )
+
+// function alphabetPosition(text) { 
+//     let a = ''; 
+    
+//     let obj={ 
+//           a:1, b:2, c:3, d:4, e:5, f:6, g:7, h:8,i:9, j:10, k:11, l:12, 
+//           m:13, n:14, o:15, p:16, q:17, r:18, s:19, t:20, u:21, v:22,  
+//           w:23, x:24, y:25, z:26 
+//       }; 
+    
+//     for (let i = 0; i < text.length; i++) { 
+//       for (let key in obj) { 
+//       if(key === text[i].toLowerCase()){ 
+//           a += obj[key] + ' ' ; 
+//       } 
+//     }  
+//   } 
+    
+//     return a.trim(); 
+//   }
