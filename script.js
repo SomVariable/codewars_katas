@@ -396,3 +396,48 @@
     
 //     return a.trim(); 
 //   }
+
+
+//=================================================================================================================
+// _______
+//|5 kyu  |
+//|_______|
+
+// Write a function which partitions a list of items based on a given predicate.
+
+// After the partition function is run, the list should be of the form [ F, F, F, T, T, T ] where the Fs (resp. Ts) are items for which the predicate function returned false (resp. true).
+
+// NOTE: the partitioning should be stable; in other words: the ordering of the Fs (resp. Ts) should be preserved relative to each other.
+
+// For convenience and utility, the partition function should return the boundary index. In other words: the index of the first T value in items.
+
+// function partitionOn(pred, items) { 
+//     const F = items.filter((item) => !pred(item) ); 
+//     const T = items.filter(pred); 
+//     items.length = 0; 
+    
+//     items.push(...F, ...T)
+
+//     return F.length;
+
+// }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------
+// _______
+//|5 kyu  |
+//|_______|
+// Let's make a function called compose that accepts a value as a parameter, as well as any number of functions as additional parameters.
+// The function will return the value that results from the first parameter being used as a parameter for all of the accepted function parameters in turn.
+// compose(n, f1, f2, f3..., fn) // === fn(...(f3(f2(f1(n)))))
+// So:
+// var doubleTheValue = function(val) { return val * 2; }
+// var addOneToTheValue = function(val) { return val + 1; }
+// compose(5, doubleTheValue) // should === 10
+// compose(5, doubleTheValue, addOneToTheValue) // should === 11
+// If only a single parameter is passed in, return that parameter.
+// compose(n) = n
+
+//const compose = (startValue, ...args) => args.reduce((result, item) => result = item(result), startValue)
+
+
+
