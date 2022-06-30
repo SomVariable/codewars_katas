@@ -422,22 +422,161 @@
 
 // }
 
-//--------------------------------------------------------------------------------------------------------------------------------------------
+
 // _______
 //|5 kyu  |
 //|_______|
-// Let's make a function called compose that accepts a value as a parameter, as well as any number of functions as additional parameters.
-// The function will return the value that results from the first parameter being used as a parameter for all of the accepted function parameters in turn.
-// compose(n, f1, f2, f3..., fn) // === fn(...(f3(f2(f1(n)))))
-// So:
-// var doubleTheValue = function(val) { return val * 2; }
-// var addOneToTheValue = function(val) { return val + 1; }
-// compose(5, doubleTheValue) // should === 10
-// compose(5, doubleTheValue, addOneToTheValue) // should === 11
-// If only a single parameter is passed in, return that parameter.
-// compose(n) = n
+// In this kata we mix some tasty fruit juice. We can add some components with certain amounts. Sometimes we pour out a bit of our juice. Then we want to find out, which concentrations our fruit juice has.
 
-//const compose = (startValue, ...args) => args.reduce((result, item) => result = item(result), startValue)
+// Example:
+
+// You take an empty jar for your juice
+// Whenever the jar is empty, the concentrations are always 0
+// Now you add 200 units of apple juice
+// And then you add 200 units of banana juice
+// Now the concentration of apple juice is 0.5 (50%)
+// Then you pour out 200 units
+// The concentration of apple juice is still 50%
+// Then you add 200 units of apple juice again
+// Now the concentration of apple juice is 0.75, while the concentration of banana juice is only 0.25 (300 units apple juice + 100 units banana juice)
+// Complete the functions in order to provide this functionality. The test code for the example above can be found in the test fixture.
+
+
+// const findConcetration = (fruit, amount) =>  (fruit / amount).toFixed(2) - 0
+
+// function Jar() {
+//     this.state = {
+//       fruits: {},
+//       amount: 0
+//     }
+//   }
+  
+//   Jar.prototype.add = function(amount, type) {
+//     if(!this.state.fruits[type]) this.state.fruits[type] = 0
+//     this.state.fruits[type] += amount
+//     this.state.amount += amount
+//   };
+  
+//   Jar.prototype.pourOut = function(amount) {
+//     const newAmount = this.state.amount - amount
+//     for(let fruit in this.state.fruits){
+//         this.state.fruits[fruit] = newAmount * findConcetration(this.state.fruits[fruit], this.state.amount)
+//     }
+//     this.state.amount = newAmount
+//   };
+  
+//   Jar.prototype.getTotalAmount = function() {
+//     return this.state.amount
+//   };
+  
+//   Jar.prototype.getConcentration = function(type) {
+//     return this.state.fruits[type]? findConcetration(this.state.fruits[type], this.state.amount) : 0
+//   }
+
+//   let jar = new Jar();
+//     console.log('jar.add 200 apple ', jar.state)
+//     jar.add(200, 'apple');
+//     console.log('state ', jar.state)
+//     console.log('jar.getTotalAmount ',jar.getTotalAmount());
+//     console.log('jar.getConcentration ',jar.getConcentration('apple'));
+    
+//     jar.add(200, 'banana');
+//     console.log('jar.add 200 banana ', jar.state)
+//     console.log('state ', jar.state)
+//     console.log('jar.getTotalAmount ',jar.getTotalAmount());
+//     console.log('jar.getConcentration ',jar.getConcentration('apple'));
+//     console.log('jar.getConcentration ',jar.getConcentration('banana'));
+  
+//     jar.pourOut(200);
+//     console.log('jar.pourOut 200 banana ', jar.state)
+//     console.log('state ', jar.state)
+//     console.log('jar.getTotalAmount ',jar.getTotalAmount());
+//     console.log('jar.getConcentration ',jar.getConcentration('apple'));
+//     console.log('jar.getConcentration ',jar.getConcentration('banana'));
+  
+//     jar.add(200, 'apple');
+//     console.log('jar.add 200 apple ', jar.state)
+//     console.log('state ', jar.state)
+//     console.log('jar.getTotalAmount ',jar.getTotalAmount());
+//     console.log('jar.getConcentration ',jar.getConcentration('apple'));
+//     console.log('jar.getConcentration ',jar.getConcentration('banana'));
+
+//   console.log('-----------------------------------------------------------------------------------------')
+
+//   console.log('jar.add 200 apple ', jar.state)
+//     jar.add(200, 'apple');
+//     console.log('state ', jar.state)
+//     console.log('jar.getTotalAmount ',jar.getTotalAmount());
+//     console.log('jar.getConcentration ',jar.getConcentration('apple'));
+    
+//     jar.add(200, 'banana');
+//     console.log('jar.add 200 banana ', jar.state)
+//     console.log('state ', jar.state)
+//     console.log('jar.getTotalAmount ',jar.getTotalAmount());
+//     console.log('jar.getConcentration ',jar.getConcentration('apple'));
+//     console.log('jar.getConcentration ',jar.getConcentration('banana'));
+  
+//     jar.pourOut(200);
+//     console.log('jar.pourOut 200 banana ', jar.state)
+//     console.log('state ', jar.state)
+//     console.log('jar.getTotalAmount ',jar.getTotalAmount());
+//     console.log('jar.getConcentration ',jar.getConcentration('apple'));
+//     console.log('jar.getConcentration ',jar.getConcentration('banana'));
+  
+//     jar.add(200, 'apple');
+//     console.log('jar.add 200 apple ', jar.state)
+//     console.log('state ', jar.state)
+//     console.log('jar.getTotalAmount ',jar.getTotalAmount());
+//     console.log('jar.getConcentration ',jar.getConcentration('apple'));
+//     console.log('jar.getConcentration ',jar.getConcentration('banana'));
+
+//     console.log('-----------------------------------------------------------------------------')
+
+//----------------------------------------------------------------------------------------------------
 
 
 
+// Write a class Block that creates a block (Duh..)
+// ##Requirements
+// The constructor should take an array as an argument, this will contain 3 integers of the form [width, length, height] from which the Block should be created.
+// Define these methods:
+// _______
+//|5 kyu  |
+//|_______|
+
+// function Block (arr){
+//     this.state = {
+//         som: 0,
+//         width: arr[0],
+//         length: arr[1], 
+//         height: arr[2]
+//     };
+//   }
+  
+//   Block.prototype.getWidth = function() {
+//     return this.state.width
+//     }
+  
+//   Block.prototype.getLength = function() { 
+//     return this.state.length
+//   }
+  
+//   Block.prototype.getHeight = function() { 
+//     return this.state.height
+//   }
+  
+//   Block.prototype.getVolume = function() { 
+//     return this.state.width * this.state.height * this.state.length
+//   }
+  
+//   Block.prototype.getSurfaceArea = function() { 
+//     return 2*(this.state.width * this.state.height + this.state.width * this.state.length + this.state.height * this.state.length)
+//   }
+  
+// const newB = new Block([2,4,6])
+
+// console.log(newB.getWidth())
+// console.log(newB.getLength())
+// console.log(newB.getHeight())
+// console.log(newB.getVolume())
+// console.log(newB.getSurfaceArea())
