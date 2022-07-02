@@ -580,3 +580,68 @@
 // console.log(newB.getHeight())
 // console.log(newB.getVolume())
 // console.log(newB.getSurfaceArea())
+
+//---------------------------------------------------------------------------------------
+// _______
+//|8 kyu  |
+//|_______|
+//Write a function which calculates the average of the numbers in a given list.
+
+// const find_average = (array) => array.length? array.reduce((sum, int) => sum += int) / array.length: 0
+
+//---------------------------------------------------------------------------------------
+// _______
+//|8 kyu  |
+//|_______|
+// The company you work for has just been awarded a contract to build a payment gateway. In order to help move things along, you have volunteered to create a function that will take a float and return the amount formatting in dollars and cents.
+// 39.99 becomes $39.99
+// The rest of your team will make sure that the argument is sanitized before being passed to your function although you will need to account for adding trailing zeros if they are missing (though you won't have to worry about a dangling period).
+// Examples:
+// 3 needs to become $3.00
+// 3.1 needs to become $3.10
+// Good luck! Your team knows they can count on you!
+
+//const formatMoney = amount => `$${amount.toFixed(2)}`;
+
+
+//------------------------------------------------------------------------------------------
+// _______
+//|8 kyu  |
+//|_______|
+// Your task is to find the first element of an array that is not consecutive.
+// By not consecutive we mean not exactly 1 larger than the previous element of the array.
+// E.g. If we have an array [1,2,3,4,6,7,8] then 1 then 2 then 3 then 4 are all consecutive but 6 is not, so that's the first non-consecutive number.
+// If the whole array is consecutive then return null2.
+// The array will always have at least 2 elements1 and all elements will be numbers. The numbers will also all be unique and in ascending order. The numbers could be positive or negative and the first non-consecutive could be either too!
+// If you like this Kata, maybe try this one next: https://www.codewars.com/kata/represent-array-of-numbers-as-ranges
+// 1 Can you write a solution that will return null2 for both [] and [ x ] though? (This is an empty array and one with a single number and is not tested for, but you can write your own example test. )
+// 2
+// Swift, Ruby and Crystal: nil
+// Haskell: Nothing
+// Python, Rust, Scala: None
+// Julia: nothing
+// Nim: none(int)
+
+// const firstNonConsecutive = (arr) => {
+//     let result = null
+//     arr.forEach((num, index) => {
+//       if(arr[index + 1] - num > 1){
+//         result = arr[index + 1]
+//       }
+//     })
+//     return result
+//   }
+
+//------------------------------------------------------------------------------------------
+// _______
+//|7 kyu  |
+//|_______|
+// You will be given an array of objects (hashes in ruby) representing data about developers who have signed up to attend the coding meetup that you are organising for the first time.
+// Your task is to return the number of JavaScript developers coming from Europe.
+
+// const countDevelopers = (list) =>
+//   list.filter(
+//     (developer) =>
+//       developer.language === "JavaScript" && developer.continent === "Europe"
+//   ).length;
+
