@@ -413,57 +413,6 @@
 // }
 
 
-// _______
-//|4 kyu  |
-//|_______|
-
-// Complete the function/method (depending on the language) to return true/True when its argument is an array that has the same nesting structures and same corresponding length of nested arrays as the first array.
-
-// For example:
-
-//  // should return true
-// [ 1, 1, 1 ].sameStructureAs( [ 2, 2, 2 ] );          
-// [ 1, [ 1, 1 ] ].sameStructureAs( [ 2, [ 2, 2 ] ] );  
-
-//  // should return false 
-// [ 1, [ 1, 1 ] ].sameStructureAs( [ [ 2, 2 ], 2 ] );  
-// [ 1, [ 1, 1 ] ].sameStructureAs( [ [ 2 ], 2 ] );  
-
-// // should return true
-// [ [ [ ], [ ] ] ].sameStructureAs( [ [ [ ], [ ] ] ] ); 
-
-// // should return false
-// [ [ [ ], [ ] ] ].sameStructureAs( [ [ 1, 1 ] ] );     
-// For your convenience, there is already a function 'isArray(o)' declared and defined that returns true if its argument is an array, false otherwise.
-
-// Array.prototype.sameStructureAs = function (other) {
-//     let isStructureSame = true
-    
-//     if(other.length !== this.length){
-//         return false
-//     }
-
-//     other.forEach((element, index) => {
-//         if(Array.isArray(element) && typeof element === typeof this[index]){
-//             let isSame = this[index].sameStructureAs(element)
-//             if(!isSame){
-//                 isStructureSame = false
-//             }
-//         }
-//         if(!Array.isArray(element) && Array.isArray(this[index])){
-//             isStructureSame = false
-//         }
-//     })
-//     return isStructureSame
-//   }
-
-
-
-
-
-
-
-
 //NEWEST
 // _______
 //|4 kyu  |
@@ -1132,14 +1081,109 @@
 // * With the input `[[3], [7, 4], [2, 4, 6], [8, 5, 9, 3]]`
 // * Your function should return `23`.
 
-function longestSlideDown (pyramid) {
-    let max = pyramid;
+// function longestSlideDown (pyramid) {
+//     let max = pyramid;
  
-     for (let y = pyramid.length-2; y >= 0; y--) {
-         for (let x = 0; x < pyramid[y].length; x++) {
-             max[y][x] = pyramid[y][x] + Math.max(...pyramid[y + 1].slice(x, x + 2));
-         }
-     }
+//      for (let y = pyramid.length-2; y >= 0; y--) {
+//          for (let x = 0; x < pyramid[y].length; x++) {
+//              max[y][x] = pyramid[y][x] + Math.max(...pyramid[y + 1].slice(x, x + 2));
+//          }
+//      }
  
-     return max[0][0];
- }
+//      return max[0][0];
+//  }
+
+//------------------------------------------------------------------------------------------
+// _______
+//|8 kyu  |
+//|_______|
+// Write a function named setAlarm which receives two parameters. The first parameter, employed, is true whenever you are employed and the second parameter, vacation is true whenever you are on vacation.
+
+// The function should return true if you are employed and not on vacation (because these are the circumstances under which you need to set an alarm). It should return false otherwise. Examples:
+
+// setAlarm(true, true) -> false
+// setAlarm(false, true) -> false
+// setAlarm(false, false) -> false
+// setAlarm(true, false) -> true
+
+//const setAlarm = (employed, vacation) => employed === true && vacation === false
+
+
+//------------------------------------------------------------------------------------------
+// _______
+//|4 kyu  |
+//|_______|
+// Your task in order to complete this Kata is to write a function which formats a duration, given as a number of seconds, in a human-friendly way.
+
+// The function must accept a non-negative integer. If it is zero, it just returns "now". Otherwise, the duration is expressed as a combination of years, days, hours, minutes and seconds.
+
+// It is much easier to understand with an example:
+
+// * For seconds = 62, your function should return 
+//     "1 minute and 2 seconds"
+// * For seconds = 3662, your function should return
+//     "1 hour, 1 minute and 2 seconds"
+// For the purpose of this Kata, a year is 365 days and a day is 24 hours.
+
+// Note that spaces are important.
+
+// Detailed rules
+// The resulting expression is made of components like 4 seconds, 1 year, etc. In general, a positive integer and one of the valid units of time, separated by a space. The unit of time is used in plural if the integer is greater than 1.
+
+// The components are separated by a comma and a space (", "). Except the last component, which is separated by " and ", just like it would be written in English.
+
+// A more significant units of time will occur before than a least significant one. Therefore, 1 second and 1 year is not correct, but 1 year and 1 second is.
+
+// Different components have different unit of times. So there is not repeated units like in 5 seconds and 1 second.
+
+// A component will not appear at all if its value happens to be zero. Hence, 1 minute and 0 seconds is not valid, but it should be just 1 minute.
+
+// A unit of time must be used "as much as possible". It means that the function should not return 61 seconds, but 1 minute and 1 second instead. Formally, the duration specified by of a component must not be greater than any valid more significant unit of time.
+
+function formatDuration (seconds) {
+  var time = { year: 31536000, day: 86400, hour: 3600, minute: 60, second: 1 },
+      res = [];
+
+  if (seconds === 0) return 'now';
+  
+  for (var key in time) {
+    if (seconds >= time[key]) {
+      var val = Math.floor(seconds/time[key]);
+      res.push(val += val > 1 ? ' ' + key + 's' : ' ' + key);
+      seconds = seconds % time[key];
+    }
+  }
+ 
+  return res.length > 1 ? res.join(', ').replace(/,([^,]*)$/,' and'+'$1') : res[0]
+}
+
+
+  
+// console.log(formatDuration(1));
+// console.log(formatDuration(62));
+// console.log(formatDuration(120));
+// console.log(formatDuration(3600));
+// console.log(formatDuration(3662));
+
+
+// let Valera = {
+//   name: "Valera"
+// }
+
+// let newValera = {
+//   name: "Valera"
+// }
+
+// let superNewValera = {
+//   name: "Valera"
+// }
+
+
+
+
+
+
+
+
+
+
