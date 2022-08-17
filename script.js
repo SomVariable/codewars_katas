@@ -1140,22 +1140,22 @@
 
 // A unit of time must be used "as much as possible". It means that the function should not return 61 seconds, but 1 minute and 1 second instead. Formally, the duration specified by of a component must not be greater than any valid more significant unit of time.
 
-function formatDuration (seconds) {
-  var time = { year: 31536000, day: 86400, hour: 3600, minute: 60, second: 1 },
-      res = [];
+// function formatDuration (seconds) {
+//   var time = { year: 31536000, day: 86400, hour: 3600, minute: 60, second: 1 },
+//       res = [];
 
-  if (seconds === 0) return 'now';
+//   if (seconds === 0) return 'now';
   
-  for (var key in time) {
-    if (seconds >= time[key]) {
-      var val = Math.floor(seconds/time[key]);
-      res.push(val += val > 1 ? ' ' + key + 's' : ' ' + key);
-      seconds = seconds % time[key];
-    }
-  }
+//   for (var key in time) {
+//     if (seconds >= time[key]) {
+//       var val = Math.floor(seconds/time[key]);
+//       res.push(val += val > 1 ? ' ' + key + 's' : ' ' + key);
+//       seconds = seconds % time[key];
+//     }
+//   }
  
-  return res.length > 1 ? res.join(', ').replace(/,([^,]*)$/,' and'+'$1') : res[0]
-}
+//   return res.length > 1 ? res.join(', ').replace(/,([^,]*)$/,' and'+'$1') : res[0]
+// }
 
 
   
@@ -1165,25 +1165,24 @@ function formatDuration (seconds) {
 // console.log(formatDuration(3600));
 // console.log(formatDuration(3662));
 
+// function stripunit(num){
+//     return num / (num * 0 + 1);
+// };
 
-// let Valera = {
-//   name: "Valera"
-// }
+// function rem(num){
+//     return (stripunit(num) / 16) * 1;
+// };
 
-// let newValera = {
-//   name: "Valera"
-// }
-
-// let superNewValera = {
-//   name: "Valera"
-// }
+// console.log(rem(96))
 
 
+const obj = {
+    a: 1,
+    b: 2,
+    c: 3
+}
 
-
-
-
-
+console.log(Object.entries(obj))
 
 
 
