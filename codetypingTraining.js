@@ -274,6 +274,24 @@ const arrForSort = [0,3,2,5,6,8,1,9,4,2,1,2,9,6,4,1,7,-1, -5, 23,6,2,35,6,3,32]
 
 //4)
 
+// function selectionSort(array){
+//     for(let i = 0; i < array.length; i++){
+//         let indexMin = i;
+
+//         for(let j = i + 1; j < array.length; j++){
+//             if(array[j] < array[indexMin]){
+//                 indexMin = j;
+//             }
+//         }
+//         let tmp = array[i];
+//         array[i] = array[indexMin]
+//         array[indexMin] = tmp
+//     }
+
+//     return array
+// }
+
+//5)
 function selectionSort(array){
     for(let i = 0; i < array.length; i++){
         let indexMin = i;
@@ -304,21 +322,37 @@ console.log('selectionSort(arrForSort) ', selectionSort(arrForSort))
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
+const arrForSort2 = [0,3,2,5,6,8,1,9,4,2,1,2,9,6,4,1,7,-1, -5, 23,6,2,35,6,3,32] 
 
-function bubbleSort(array) {
-    for (let i = 0; i < array.length; i++) {
-        for (let j = 0; j < array.length; j++) {
-            if (array[j + 1] < array[j]) {
+//1)
+// function bubbleSort(array) {
+//     for (let i = 0; i < array.length; i++) {
+//         for (let j = 0; j < array.length; j++) {
+//             if (array[j + 1] < array[j]) {
+//                 let tmp = array[j]
+//                 array[j] = array[j+1]
+//                 array[j+1] = tmp
+//             }
+//         }
+//     }
+//     return array
+// }
+
+//2)
+function bubbleSort(array){
+    for(let i = 0; i < array.length; i++){
+        for(let j = 0; j < array.length; j++){
+            if(array[j+1] < array[j]){
                 let tmp = array[j]
-                array[j] = array[j+1]
+                array[j] = array[j + 1]
                 array[j+1] = tmp
             }
         }
     }
-    return array
+    return array;
 }
 
-console.log(bubbleSort(arrForSort)) 
+console.log('bubbleSort(arrForSort2) ', bubbleSort(arrForSort2)) 
 
 
 //-----------------------------------------------------------------------------------
@@ -331,28 +365,79 @@ console.log(bubbleSort(arrForSort))
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
+const arrForSort3 = [0,3,2,5,6,8,1,9,4,2,1,2,9,6,4,1,7,-1, -5, 23,6,2,35,6,3,32] 
 
-function quickSort(array) {
-    if (array.length <= 1) {
+
+//1) 
+// function quickSort(array) {
+//     if (array.length <= 1) {
+//         return array
+//     }
+//     let pivotIndex = Math.floor(array.length / 2);
+//     let pivot = array[pivotIndex]
+//     let less = []
+//     let greater = []
+//     for (let i = 0; i < array.length; i++) {
+//         if(i === pivotIndex)
+//             continue
+//         if (array[i] < pivot) {
+//             less.push(array[i])
+//         } else {
+//             greater.push(array[i])
+//         }
+//     }
+//     return [...quickSort(less), pivot, ...quickSort(greater)]
+// }
+
+//2)
+
+// function quickSort(array){
+//     if(array.length <= 1){
+//         return array
+//     }
+
+//     let pivotIndex = Math.floor(array.length / 2);
+//     let pivot = array[pivotIndex]
+//     let less = [];
+//     let greater = []
+//     for(let i = 0; i < array.length; i++){
+//         if(i === pivotIndex){
+//             continue
+//         }
+//         if(array[i] < pivot){
+//             less.push(array[i])
+//         }else{
+//             greater.push(array[i])
+//         }
+//     }
+//     return [...quickSort(less), pivot, ...quickSort(greater)]
+// }
+
+//3)
+function quickSort(array){
+    if(array.length <= 1){
         return array
     }
-    let pivotIndex = Math.floor(array.length / 2);
+
+    let pivotIndex = Math.floor((array.length / 2))
     let pivot = array[pivotIndex]
-    let less = []
-    let greater = []
-    for (let i = 0; i < array.length; i++) {
-        if(i === pivotIndex)
+    let greater = [];
+    let less = [];
+    for(let i = 0; i < array.length; i++){
+        if(i === pivotIndex){ 
             continue
-        if (array[i] < pivot) {
+        }
+        if(array[i] < pivot){
             less.push(array[i])
-        } else {
+        }else{
             greater.push(array[i])
         }
     }
+
     return [...quickSort(less), pivot, ...quickSort(greater)]
 }
 
-console.log(quickSort(arrForSort))
+console.log('quickSort(arrForSort3) ', quickSort(arrForSort3))
 
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
