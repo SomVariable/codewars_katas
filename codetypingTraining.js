@@ -202,8 +202,8 @@ function recursiveBinarySearch(array, item, start, end){
     }
 }
 
-console.log(binarySearch(array, 6))
-console.log(recursiveBinarySearch(array, 6, 0, array.length))
+console.log('binarySearch(array, 6) ', binarySearch(array, 6))
+console.log('recursiveBinarySearch(array, 6, 0, array.length) ', recursiveBinarySearch(array, 6, 0, array.length))
 
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
@@ -218,22 +218,81 @@ console.log(recursiveBinarySearch(array, 6, 0, array.length))
 
 const arrForSort = [0,3,2,5,6,8,1,9,4,2,1,2,9,6,4,1,7,-1, -5, 23,6,2,35,6,3,32] 
 
-function selectionSort(array) {
-    for (let i = 0; i < array.length; i++) {
-        let indexMin = i
-        for (let j = i+1; j < array.length; j++) {
-            if (array[j] < array[indexMin]) {
-                indexMin = j
+
+//1)
+// function selectionSort(array) {
+//     for (let i = 0; i < array.length; i++) {
+//         let indexMin = i
+//         for (let j = i+1; j < array.length; j++) {
+//             if (array[j] < array[indexMin]) {
+//                 indexMin = j
+//             }
+//         }
+//         let tmp = array[i]
+//         array[i] = array[indexMin]
+//         array[indexMin] = tmp
+//     }
+//     return array
+// }
+
+//2)
+// function selectionSort(array) {
+//     for(let i = 0; i < array.length; i++){
+//         let indexMin = i;
+
+//         for(let j = i+1; j < array.length; j++){
+//             if(array[j] < array[indexMin]) {
+//                 indexMin = j
+//             }
+//         }
+
+//         let tmp = array[i]
+//         array[i] = array[indexMin]
+//         array[indexMin] = tmp
+//     }
+//     return array
+// }
+
+//3)
+// function selectionSort(array){
+//     for(let i = 0; i < array.length; i++){
+//         let indexMin = i;
+
+//         for(let j = i + 1; j < array.length; j++){
+//             if(array[j] < array[indexMin]){
+//                 indexMin = j;
+//             }
+//         }
+
+//         let tmp = array[i]
+//         array[i] = array[indexMin]
+//         array[indexMin] = tmp
+//     }
+
+//     return array
+// }
+
+//4)
+
+function selectionSort(array){
+    for(let i = 0; i < array.length; i++){
+        let indexMin = i;
+
+        for(let j = i + 1; j < array.length; j++){
+            if(array[j] < array[indexMin]){
+                indexMin = j;
             }
         }
-        let tmp = array[i]
+
+        let tmp = array[i];
         array[i] = array[indexMin]
         array[indexMin] = tmp
     }
+
     return array
 }
 
-console.log(selectionSort(arrForSort))
+console.log('selectionSort(arrForSort) ', selectionSort(arrForSort))
 
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
