@@ -187,7 +187,7 @@ fahrenheitToCelsius(32);    // 0
 //9. Checking whether the user has an Apple device
 const isAppleDevice = /Mac|iPod|iPhone|iPad/.test(navigator.platform);
 
-console.log(isAppleDevice);
+console.log('isAppleDevice ', isAppleDevice);
 
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
@@ -200,9 +200,11 @@ console.log(isAppleDevice);
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
 //10. Getting the time from the date
-const timeFromDate = date => date.toTimeString().slice(0, 8);
+//1)
+//const timeFromDate = date => date.toTimeString().slice(0, 8);
+const timeFromDate = date => date.toTimeString().slice(0, 8)
 
-console.log(timeFromDate(new Date(2021, 0, 10, 17, 30, 0)));
+console.log('timeFromDate ', timeFromDate(new Date(2021, 0, 10, 17, 30, 0)));
 
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
@@ -215,9 +217,18 @@ console.log(timeFromDate(new Date(2021, 0, 10, 17, 30, 0)));
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
 //11. Extract HTML from text
+//1)
+//const stripHtml = html => (new DOMParser().parseFromString(html, 'text/html')).body.textContent || '';
+//2)
+//const stripHtml = html => (new DOMParser().parseFromString(html, 'text/html')).body.textContent || '';
+//3)
+//const stripHtml = html => (new DOMParser().parseFromString(html, 'text/html')).body.textContent || '';
+//4) 
+//const stripHtml = html => (new DOMParser().parseFromString(html, 'text/html')).body.textContent || '';
+//5)
 const stripHtml = html => (new DOMParser().parseFromString(html, 'text/html')).body.textContent || '';
 
-stripHtml('<h1>Hello <strong>World</strong>!!!</h1>');
+console.log('stripHtml ', stripHtml('<h1>Hello <strong>World</strong>!!!</h1>'));
 
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
@@ -230,8 +241,10 @@ stripHtml('<h1>Hello <strong>World</strong>!!!</h1>');
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
 //12. Toggle "show/hide item"
-const toggleElementDisplay = element => element.style.display = (element.style.display === "none" ? "block" : "none");
+//1)
+//const toggleElementDisplay = element => element.style.display = (element.style.display === "none" ? "block" : "none");
 
+const toggleElementDisplay = element => element.style.display = (element.style.display === "none" ? "block" : "none");
 toggleElementDisplay(document.body)
 
 //-----------------------------------------------------------------------------------
@@ -245,9 +258,13 @@ toggleElementDisplay(document.body)
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
 //13. Line spread
-const stringReverse = str => str.split("").reverse().join("");
+//1)
+//const stringReverse = str => str.split("").reverse().join("");
+//2)
+const stringReverse = str => str.split("").reverse().join("")
 
-stringReverse('elcitra ym ekil uoy epoh i');
+console.log('stringReverse ', stringReverse('elcitra ym ekil uoy epoh i'));
+
 
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
@@ -260,9 +277,12 @@ stringReverse('elcitra ym ekil uoy epoh i');
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
 //14. Highlighting a line with a capital letter
+//1)
+//const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
+//2)
 const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
 
-capitalize("i hope you like my article.");
+console.log('capitalize ', capitalize("i hope you like my article."));
 
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
@@ -294,9 +314,12 @@ round(1.555, 2) //1.56
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
 //16. Stirring the array
+//1)
+//const shuffleArray = (arr) => arr.sort(() => 0.5 - Math.random());
+//2)
 const shuffleArray = (arr) => arr.sort(() => 0.5 - Math.random());
 
-console.log(shuffleArray([1, 2, 3, 4]));
+console.log('shuffleArray ', shuffleArray([1, 2, 3, 4]));
 
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
@@ -311,7 +334,7 @@ console.log(shuffleArray([1, 2, 3, 4]));
 //17. Defining dark mode
 const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-console.log(isDarkMode) 
+console.log('isDarkMode ', isDarkMode) 
 
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
