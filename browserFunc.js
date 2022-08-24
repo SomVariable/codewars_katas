@@ -1,4 +1,16 @@
 //1. Copying to the clipboard
+//const copyToClipboard = (text) => navigator.clipboard.writeText(text);
+
+//2)
+//const copyToClipboard = (text) => navigator.clipboard.writeText(text);
+
+//3)
+//const copyToClipboard = (text) => navigator.clipboard.writeText(text);
+
+//4)
+//const copyToClipboard = (text) => navigator.clipboard.writeText(text);
+
+//5)
 const copyToClipboard = (text) => navigator.clipboard.writeText(text);
 
 copyToClipboard("This Sring is Copied To Clipboard.");
@@ -14,9 +26,22 @@ copyToClipboard("This Sring is Copied To Clipboard.");
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
 //2. Obtaining a random number within a certain range
-const randomNumberInRange = (min = 0, max = 100) => Math.floor(Math.random() * (max - min + 1)) + min;
+//1)
+//const randomNumberInRange = (min = 0, max = 100) => Math.floor(Math.random() * (max - min + 1)) + min;
 
-randomNumberInRange()
+//2)
+//const randomNumberInRange = (min = 0, max = 100) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+//3)
+//const randomNumberInRange = (min = 0, max = 100) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+//4)
+//const randomNumberInRange = (min = 0, max = 100) => Math.floor(Math.random() * (max - min)) + min
+
+//5)
+const randomNumberInRange = (min = 0, max = 100) => Math.floor(Math.random() * (max - min)) + min
+
+console.log(randomNumberInRange())
 
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
@@ -29,9 +54,12 @@ randomNumberInRange()
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
 //3. Converting RGB to hexadecimal code
+//1)
+//const rgbToHex = (r, g, b) => "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+
 const rgbToHex = (r, g, b) => "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 
-rgbToHex(0, 51, 255); 
+console.log('rgbToHex ', rgbToHex(0, 51, 255)); 
 
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
@@ -44,7 +72,15 @@ rgbToHex(0, 51, 255);
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
 //4. Scroll to the top of the page
+//1)
+//const goToTop = () => window.scrollTo(0, 0);
+//2)
+//const goToTop = () => window.scrollTo(0, 0);
+//3)
+//const goToTop = () => window.scrollTo(0, 0);
 const goToTop = () => window.scrollTo(0, 0);
+
+
 
 goToTop();
 
@@ -61,7 +97,7 @@ goToTop();
 //5. Finding the number of intermediate days between two dates
 const dayDif = (date1, date2) => Math.ceil(Math.abs(date1.getTime() - date2.getTime()) / 86400000)
 
-dayDif(new Date("2020-10-21"), new Date("2021-10-22"))
+console.log('dayDif ', dayDif(new Date("2020-10-21"), new Date("2021-10-22")))
 
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
@@ -74,9 +110,13 @@ dayDif(new Date("2020-10-21"), new Date("2021-10-22"))
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
 //6. Generation of random hex color codes
+//1)
+//const randomHex = () => `#${Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, "0")}`;
+
+//2)
 const randomHex = () => `#${Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, "0")}`;
 
-console.log(randomHex());
+console.log('randomHex ', randomHex());
 
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
@@ -89,11 +129,20 @@ console.log(randomHex());
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
 //7. Checking whether the specified day is a weekday
-const isWeekday = (date) => date.getDay() % 6 !== 0;
+//1)
+//const isWeekday = (date) => date.getDay() % 6 !== 0;
+//2)
+// const isWeekday = date => date.getDay() % 6 !== 0;
+//3)
+// const isWeekday = date => date.getDay() % 6 !== 0;
+//4)
+// const isWeekday = date => date.getDay() % 6 !== 0;
+//5)
+const isWeekday = date => date.getDay() % 6 !== 0;
 
-console.log(isWeekday(new Date(2021, 0, 11)));
+console.log('isWeekday ', isWeekday(new Date(2021, 0, 11)));
 // Результат: true(понедельник)
-console.log(isWeekday(new Date(2021, 0, 10)));
+console.log('isWeekday ', isWeekday(new Date(2021, 0, 10)));
 // Результат: false(воскресенье)
 
 //-----------------------------------------------------------------------------------
@@ -107,8 +156,16 @@ console.log(isWeekday(new Date(2021, 0, 10)));
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
 //8. Conversion of temperature values in Fahrenheit / Celsius
+//1)
+// const celsiusToFahrenheit = (celsius) => celsius * 9/5 + 32;
+// const fahrenheitToCelsius = (fahrenheit) => (fahrenheit - 32) * 5/9;
+//2)
+// const celsiusToFahrenheit = (celsius) => celsius * 9/5 + 32;
+// const fahrenheitToCelsius = (fahrenheit) => (fahrenheit - 32) * 5/9;
+//3)
 const celsiusToFahrenheit = (celsius) => celsius * 9/5 + 32;
 const fahrenheitToCelsius = (fahrenheit) => (fahrenheit - 32) * 5/9;
+
 
 celsiusToFahrenheit(15);    // 59
 celsiusToFahrenheit(0);     // 32
