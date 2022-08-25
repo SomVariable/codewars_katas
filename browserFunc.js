@@ -1,3 +1,5 @@
+//The purpose of the file - to train blind typing, as well as in the process to repeat a set of different kata, algorithms, rules so many times to type without thinking 
+
 //1. Copying to the clipboard
 //const copyToClipboard = (text) => navigator.clipboard.writeText(text);
 
@@ -11,7 +13,9 @@
 //const copyToClipboard = (text) => navigator.clipboard.writeText(text);
 
 //5)
-const copyToClipboard = (text) => navigator.clipboard.writeText(text);
+//const copyToClipboard = (text) => navigator.clipboard.writeText(text);
+//6)
+const copyToClipboard = (text) => navigator.clipboard.writeText(text)
 
 copyToClipboard("This Sring is Copied To Clipboard.");
 
@@ -39,6 +43,7 @@ copyToClipboard("This Sring is Copied To Clipboard.");
 //const randomNumberInRange = (min = 0, max = 100) => Math.floor(Math.random() * (max - min)) + min
 
 //5)
+//const randomNumberInRange = (min = 0, max = 100) => Math.floor(Math.random() * (max - min)) + min
 const randomNumberInRange = (min = 0, max = 100) => Math.floor(Math.random() * (max - min)) + min
 
 console.log(randomNumberInRange())
@@ -56,7 +61,9 @@ console.log(randomNumberInRange())
 //3. Converting RGB to hexadecimal code
 //1)
 //const rgbToHex = (r, g, b) => "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
-
+//2)
+//const rgbToHex = (r, g, b) => "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+//3)
 const rgbToHex = (r, g, b) => "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 
 console.log('rgbToHex ', rgbToHex(0, 51, 255)); 
@@ -78,8 +85,11 @@ console.log('rgbToHex ', rgbToHex(0, 51, 255));
 //const goToTop = () => window.scrollTo(0, 0);
 //3)
 //const goToTop = () => window.scrollTo(0, 0);
-const goToTop = () => window.scrollTo(0, 0);
-
+//4)
+//const goToTop = () => window.scrollTo(0, 0);
+//5)
+//const goToTop = () => window.scrollTo(0, 0);
+const goToTop = () => window.scrollTo(0, 0)
 
 
 goToTop();
@@ -95,8 +105,10 @@ goToTop();
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
 //5. Finding the number of intermediate days between two dates
+//1)
+//const dayDif = (date1, date2) => Math.ceil(Math.abs(date1.getTime() - date2.getTime()) / 86400000)
+//2)
 const dayDif = (date1, date2) => Math.ceil(Math.abs(date1.getTime() - date2.getTime()) / 86400000)
-
 console.log('dayDif ', dayDif(new Date("2020-10-21"), new Date("2021-10-22")))
 
 //-----------------------------------------------------------------------------------
@@ -114,8 +126,8 @@ console.log('dayDif ', dayDif(new Date("2020-10-21"), new Date("2021-10-22")))
 //const randomHex = () => `#${Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, "0")}`;
 
 //2)
-const randomHex = () => `#${Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, "0")}`;
-
+//const randomHex = () => `#${Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, "0")}`;
+const randomHex = () => `#${Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, "0")}`
 console.log('randomHex ', randomHex());
 
 //-----------------------------------------------------------------------------------
@@ -138,8 +150,9 @@ console.log('randomHex ', randomHex());
 //4)
 // const isWeekday = date => date.getDay() % 6 !== 0;
 //5)
+//const isWeekday = date => date.getDay() % 6 !== 0;
+//6)
 const isWeekday = date => date.getDay() % 6 !== 0;
-
 console.log('isWeekday ', isWeekday(new Date(2021, 0, 11)));
 // Результат: true(понедельник)
 console.log('isWeekday ', isWeekday(new Date(2021, 0, 10)));
@@ -347,9 +360,12 @@ console.log('isDarkMode ', isDarkMode)
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
 //18. Getting request parameters from a URL
-const getParameters = (URL) => JSON.parse('{"' + decodeURI(URL.split("?")[1]).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') +'"}');
+//1)
+//const getParameters = (URL) => JSON.parse('{"' + decodeURI(URL.split("?")[1]).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') +'"}');
+//2)
+const getParameters = (URL) => JSON.parse(`{"${decodeURI(URL.split("?")[1]).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"')}"}`)
 
-getParameters("https://www.google.de/search?q=cars&start=40");
+console.log('getParameters ', getParameters("https://www.google.de/search?q=cars&start=40"));
 
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
@@ -364,7 +380,7 @@ getParameters("https://www.google.de/search?q=cars&start=40");
 //19. Getting the average value of an array of numbers
 const average = arr => arr.reduce((a, b) => a + b) / arr.length;
 
-average([21, 56, 23, 122, 67])
+console.log('average ', average([21, 56, 23, 122, 67]))
 
 
 //-----------------------------------------------------------------------------------
@@ -382,7 +398,7 @@ const touchSupported = () => {
     ('ontouchstart' in window || window.DocumentTouch && document instanceof window.DocumentTouch);
   }
   
-  console.log(touchSupported());
+  console.log('touchSupported ', touchSupported());
   //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
@@ -396,7 +412,7 @@ const touchSupported = () => {
 //21. Determining the sequential number of the day of the year
 const dayOfYear = (date) => Math.floor((date - new Date(date.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
 
-dayOfYear(new Date());
+console.log('dayOfYear', dayOfYear(new Date()));
 
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
@@ -411,7 +427,7 @@ dayOfYear(new Date());
 //22. Getting the value of a browser cookie
 const cookie = name => `; ${document.cookie}`.split(`; ${name}=`).pop().split(';').shift();
 
-cookie('_ga');
+console.log('cookie', cookie('_ga'));
 
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
@@ -443,7 +459,7 @@ const clearCookies = document.cookie
 //24. Getting a random boolean value (true/false)
 const randomBoolean = () => Math.random() >= 0.5;
 
-console.log(randomBoolean());
+console.log('randomBoolean ' , randomBoolean());
 
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
@@ -458,7 +474,8 @@ console.log(randomBoolean());
 //25. Removing duplicates in an array
 const removeDuplicates = (arr) => [...new Set(arr)];
 
-removeDuplicates([31, 56, 12, 31, 45, 12, 31]);
+
+console.log('removeDuplicates ', removeDuplicates([31, 56, 12, 31, 45, 12, 31]))
 
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
@@ -473,7 +490,7 @@ removeDuplicates([31, 56, 12, 31, 45, 12, 31]);
 //26. Checking correctness of date
 const isDateValid = (...val) => !Number.isNaN(new Date(...val).valueOf());
 
-isDateValid("December 17, 1995 03:24:00");
+console.log('isDateValid ', isDateValid("December 17, 1995 03:24:00"));
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
@@ -487,4 +504,4 @@ isDateValid("December 17, 1995 03:24:00");
 //27. Getting a random element from an array
 const randomArrayItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
-randomArrayItem(['lol', 'a', 2, 'foo', 52, 'Jhon', 'hello', 57]);
+console.log('randomArrayItem ', randomArrayItem(['lol', 'a', 2, 'foo', 52, 'Jhon', 'hello', 57]));
