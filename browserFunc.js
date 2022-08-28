@@ -2,20 +2,25 @@
 
 //1. Copying to the clipboard
 //const copyToClipboard = (text) => navigator.clipboard.writeText(text);
-
 //2)
 //const copyToClipboard = (text) => navigator.clipboard.writeText(text);
-
 //3)
 //const copyToClipboard = (text) => navigator.clipboard.writeText(text);
-
 //4)
 //const copyToClipboard = (text) => navigator.clipboard.writeText(text);
-
 //5)
 //const copyToClipboard = (text) => navigator.clipboard.writeText(text);
 //6)
-const copyToClipboard = (text) => navigator.clipboard.writeText(text)
+//const copyToClipboard = (text) => navigator.clipboard.writeText(text);
+//7)
+//const copyToClipboard = (text) => navigator.clipboard.writeText(text);
+//8)
+//const copyToClipboard = (text) => navigator.clipboard.writeText(text);
+//9)
+//const copyToClipboard = (text) => navigator.clipboard.writeText(text);
+//10)
+const copyToClipboard = (text) => navigator.clipboard.writeText(text);
+
 
 copyToClipboard("This Sring is Copied To Clipboard.");
 
@@ -32,21 +37,26 @@ copyToClipboard("This Sring is Copied To Clipboard.");
 //2. Obtaining a random number within a certain range
 //1)
 //const randomNumberInRange = (min = 0, max = 100) => Math.floor(Math.random() * (max - min + 1)) + min;
-
 //2)
 //const randomNumberInRange = (min = 0, max = 100) => Math.floor(Math.random() * (max - min + 1)) + min;
-
 //3)
 //const randomNumberInRange = (min = 0, max = 100) => Math.floor(Math.random() * (max - min + 1)) + min;
-
 //4)
-//const randomNumberInRange = (min = 0, max = 100) => Math.floor(Math.random() * (max - min)) + min
-
+//const randomNumberInRange = (min = 0, max = 100) => Math.floor(Math.random() * (max - min)) + min;
 //5)
-//const randomNumberInRange = (min = 0, max = 100) => Math.floor(Math.random() * (max - min)) + min
-const randomNumberInRange = (min = 0, max = 100) => Math.floor(Math.random() * (max - min)) + min
+//const randomNumberInRange = (min = 0, max = 100) => Math.floor(Math.random() * (max - min)) + min;
+//6)
+//const randomNumberInRange = (min = 0, max = 100) => Math.floor(Math.random() * (max - min)) + min;
+//7)
+//const randomNumberInRange = (min = 0, max = 100) => Math.floor(Math.random() * (max - min)) + min;
+//8)
+//const randomNumberInRange = (min = 0, max = 100) => Math.floor(Math.random() * (max - min)) + min;
+//9)
+//const randomNumberInRange = (min = 0, max = 100) => Math.floor(Math.random() * (max - min)) + min;
+//10
+const randomNumberInRange = (min = 0, max = 100) => Math.floor(Math.random() * (max - min)) + min;
 
-console.log(randomNumberInRange())
+console.log('randomNumberInRange ', randomNumberInRange())
 
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
@@ -64,8 +74,11 @@ console.log(randomNumberInRange())
 //2)
 //const rgbToHex = (r, g, b) => "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 //3)
+//const rgbToHex = (r, g, b) => "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+//4)
+//const rgbToHex = (r, g, b) => "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+//5)
 const rgbToHex = (r, g, b) => "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
-
 console.log('rgbToHex ', rgbToHex(0, 51, 255)); 
 
 //-----------------------------------------------------------------------------------
@@ -89,8 +102,10 @@ console.log('rgbToHex ', rgbToHex(0, 51, 255));
 //const goToTop = () => window.scrollTo(0, 0);
 //5)
 //const goToTop = () => window.scrollTo(0, 0);
+//6)
+//const goToTop = () => window.scrollTo(0, 0)
+//7)
 const goToTop = () => window.scrollTo(0, 0)
-
 
 goToTop();
 
@@ -108,6 +123,12 @@ goToTop();
 //1)
 //const dayDif = (date1, date2) => Math.ceil(Math.abs(date1.getTime() - date2.getTime()) / 86400000)
 //2)
+//const dayDif = (date1, date2) => Math.ceil(Math.abs(date1.getTime() - date2.getTime()) / 86400000)
+//3)
+//const dayDif = (date1, date2) => Math.ceil(Math.abs(date1.getTime() - date2.getTime()) / 86400000)
+//4)
+//const dayDif = (date1, date2) => Math.ceil(Math.abs(date1.getTime() - date2.getTime()) / 86400000)
+//5)
 const dayDif = (date1, date2) => Math.ceil(Math.abs(date1.getTime() - date2.getTime()) / 86400000)
 console.log('dayDif ', dayDif(new Date("2020-10-21"), new Date("2021-10-22")))
 
@@ -127,7 +148,10 @@ console.log('dayDif ', dayDif(new Date("2020-10-21"), new Date("2021-10-22")))
 
 //2)
 //const randomHex = () => `#${Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, "0")}`;
-const randomHex = () => `#${Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, "0")}`
+//3)
+//const randomHex = () => `#${Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, "0")}`;
+//4)
+const randomHex = () => `#${Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, "0")}`;
 console.log('randomHex ', randomHex());
 
 //-----------------------------------------------------------------------------------
@@ -152,6 +176,8 @@ console.log('randomHex ', randomHex());
 //5)
 //const isWeekday = date => date.getDay() % 6 !== 0;
 //6)
+//const isWeekday = date => date.getDay() % 6 !== 0;
+//7)
 const isWeekday = date => date.getDay() % 6 !== 0;
 console.log('isWeekday ', isWeekday(new Date(2021, 0, 11)));
 // Результат: true(понедельник)
@@ -256,7 +282,13 @@ console.log('stripHtml ', stripHtml('<h1>Hello <strong>World</strong>!!!</h1>'))
 //12. Toggle "show/hide item"
 //1)
 //const toggleElementDisplay = element => element.style.display = (element.style.display === "none" ? "block" : "none");
-
+//2)
+//const toggleElementDisplay = element => element.style.display = (element.style.display === "none" ? "block" : "none");
+//3)
+//const toggleElementDisplay = element => element.style.display = (element.style.display === "none" ? "block" : "none");
+//4)
+///const toggleElementDisplay = element => element.style.display = (element.style.display === "none" ? "block" : "none");
+//5)
 const toggleElementDisplay = element => element.style.display = (element.style.display === "none" ? "block" : "none");
 toggleElementDisplay(document.body)
 
@@ -274,6 +306,12 @@ toggleElementDisplay(document.body)
 //1)
 //const stringReverse = str => str.split("").reverse().join("");
 //2)
+//const stringReverse = str => str.split("").reverse().join("")
+//3)
+//const stringReverse = str => str.split("").reverse().join("")
+//4)
+//const stringReverse = str => str.split("").reverse().join("")
+//5)
 const stringReverse = str => str.split("").reverse().join("")
 
 console.log('stringReverse ', stringReverse('elcitra ym ekil uoy epoh i'));
@@ -293,8 +331,9 @@ console.log('stringReverse ', stringReverse('elcitra ym ekil uoy epoh i'));
 //1)
 //const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
 //2)
+//const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
+//3)
 const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
-
 console.log('capitalize ', capitalize("i hope you like my article."));
 
 //-----------------------------------------------------------------------------------
@@ -330,6 +369,8 @@ round(1.555, 2) //1.56
 //1)
 //const shuffleArray = (arr) => arr.sort(() => 0.5 - Math.random());
 //2)
+//const shuffleArray = (arr) => arr.sort(() => 0.5 - Math.random());
+//3)
 const shuffleArray = (arr) => arr.sort(() => 0.5 - Math.random());
 
 console.log('shuffleArray ', shuffleArray([1, 2, 3, 4]));
@@ -378,9 +419,13 @@ console.log('getParameters ', getParameters("https://www.google.de/search?q=cars
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
 //19. Getting the average value of an array of numbers
+//1)
+//const average = arr => arr.reduce((a, b) => a + b) / arr.length;
+//2)
+//const average = arr => arr.reduce((a, b) => a + b) / arr.length;
+//3)
 const average = arr => arr.reduce((a, b) => a + b) / arr.length;
-
-console.log('average ', average([21, 56, 23, 122, 67]))
+console.log('average ', average([1, 2, 3, 4, 5]))
 
 
 //-----------------------------------------------------------------------------------
@@ -410,8 +455,10 @@ const touchSupported = () => {
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
 //21. Determining the sequential number of the day of the year
+//1)
+//const dayOfYear = (date) => Math.floor((date - new Date(date.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
+//2)
 const dayOfYear = (date) => Math.floor((date - new Date(date.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
-
 console.log('dayOfYear', dayOfYear(new Date()));
 
 //-----------------------------------------------------------------------------------
@@ -502,6 +549,12 @@ console.log('isDateValid ', isDateValid("December 17, 1995 03:24:00"));
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
 //27. Getting a random element from an array
-const randomArrayItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
-
+//1)
+//const randomArrayItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
+//2)
+//const randomArrayItem = arr => arr[Math.floor(Math.random() * arr.length)];
+//3)
+//const randomArrayItem = arr => arr[Math.floor(Math.random() * arr.length)];
+//4)
+const randomArrayItem = arr => arr[Math.floor(Math.random() * arr.length)];
 console.log('randomArrayItem ', randomArrayItem(['lol', 'a', 2, 'foo', 52, 'Jhon', 'hello', 57]));
