@@ -200,19 +200,44 @@ const array = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
 //     return isFound
 // }
 //9)
+// function binarySearch(array, item){
+//     let start   = 0,
+//         end     = array.length, 
+//         middle  = 0,
+//         isFound = false;
+
+
+//     while(!isFound && start <= end){
+//         middle = Math.floor((start + end) / 2)
+        
+//         if(array[middle] === item){
+//             isFound = true;
+//             return middle
+//         }
+
+//         if(array[middle] > item){
+//             end = middle - 1;
+//         }else{
+//             start = middle + 1;
+//         }
+//     }
+
+//     return isFound;
+// }
+
+//10)
 function binarySearch(array, item){
     let start   = 0,
-        end     = array.length, 
-        middle  = 0,
+        end     = array.length,
+        middle  = 0, 
         isFound = false;
-
-
+    
     while(!isFound && start <= end){
         middle = Math.floor((start + end) / 2)
-        
+
         if(array[middle] === item){
             isFound = true;
-            return middle
+            return middle;
         }
 
         if(array[middle] > item){
@@ -224,7 +249,6 @@ function binarySearch(array, item){
 
     return isFound;
 }
-
 
 //1)
 // function recursiveBinarySearch(array, item, start, end) {
@@ -347,6 +371,21 @@ function binarySearch(array, item){
 // }
 
 //9)
+// function recursiveBinarySearch(array, item, start, end){
+//     let middle = Math.floor((start + end) / 2)
+
+//     if(array[middle] === item){
+//         return middle;
+//     }
+
+//     if(array[middle] < item){
+//         return recursiveBinarySearch(array, item, middle + 1, end);
+//     }else{
+//         return recursiveBinarySearch(array, item, 0, middle - 1)
+//     }
+// }
+
+//10)
 function recursiveBinarySearch(array, item, start, end){
     let middle = Math.floor((start + end) / 2)
 
@@ -355,7 +394,7 @@ function recursiveBinarySearch(array, item, start, end){
     }
 
     if(array[middle] < item){
-        return recursiveBinarySearch(array, item, middle + 1, end);
+        return recursiveBinarySearch(array, item, middle + 1, end)
     }else{
         return recursiveBinarySearch(array, item, 0, middle - 1)
     }
@@ -525,6 +564,23 @@ const arrForSort = [0,3,2,5,6,8,1,9,4,2,1,2,9,6,4,1,7,-1, -5, 23,6,2,35,6,3,32]
 
 //     return array
 // }
+//9)
+// function selectionSort(array){
+//     for(let i = 0; i < array.length; i++){
+//         let indexMin = i;
+
+//         for(let j = i + 1; j < array.length; j++){
+//             if(array[j] < array[indexMin]){
+//                 indexMin = j;
+//             }
+//         }
+
+//         let tmp = array[indexMin];
+//         array[indexMin] = array[i];
+//         array[i] = tmp;
+//     }
+//     return array;
+// }
 
 function selectionSort(array){
     for(let i = 0; i < array.length; i++){
@@ -532,7 +588,7 @@ function selectionSort(array){
 
         for(let j = i + 1; j < array.length; j++){
             if(array[j] < array[indexMin]){
-                indexMin = j;
+                indexMin = j
             }
         }
 
@@ -540,8 +596,11 @@ function selectionSort(array){
         array[indexMin] = array[i];
         array[i] = tmp;
     }
+
     return array;
 }
+
+
 
 console.log('selectionSort(arrForSort) ', selectionSort(arrForSort))
 
@@ -628,11 +687,25 @@ const arrForSort2 = [0,3,2,5,6,8,1,9,4,2,1,2,9,6,4,1,7,-1, -5, 23,6,2,35,6,3,32]
 
 //     return array
 // }
+//6)
+// function bubbleSort(array){
+//     for(let i = 0; i < array.length; i++){
+//         for(let j = 0; j < array.length; j++){
+//             if(array[j + 1] < array[j]){
+//                 const tmp = array[j + 1];
+//                 array[j + 1] = array[j];
+//                 array[j] = tmp;
+//             }
+//         }
+//     }
 
+//     return array;
+// }
+//7)
 function bubbleSort(array){
     for(let i = 0; i < array.length; i++){
         for(let j = 0; j < array.length; j++){
-            if(array[j + 1] < array[j]){
+            if(array[j+1] < array[j]){
                 const tmp = array[j + 1];
                 array[j + 1] = array[j];
                 array[j] = tmp;
@@ -806,6 +879,29 @@ const arrForSort3 = [0,3,2,5,6,8,1,9,4,2,1,2,9,6,4,1,7,-1, -5, 23,6,2,35,6,3,32]
 // }
 
 //7)
+// function quickSort(array){
+//     if(array.length <= 1){
+//         return array
+//     }
+
+//     let pivotIndex = Math.floor(array.length / 2),
+//         pivot      = array[pivotIndex],
+//         greater    = [],
+//         less       = [];
+
+
+//     for(let i = 0; i < array.length; i++){
+//         if(i === pivotIndex) continue
+//         if(array[i] < pivot){
+//             less.push(array[i])
+//         }else{
+//             greater.push(array[i])
+//         }
+//     }
+
+//     return [...quickSort(less), pivot, ...quickSort(greater)]
+// }
+//8)
 function quickSort(array){
     if(array.length <= 1){
         return array
@@ -888,9 +984,31 @@ graph.f = ['g']
 
 //     return false;
 // }
+//3)
+// function breadthSearch(graph, start, end) { 
+//     let queue = [];
+//     queue.push(start)
 
-function breadthSearch(graph, start, end) { 
+//     while(queue.length > 0){
+//         const current = queue.shift();
+
+//         if(!graph[current]){
+//             graph[current] = []
+//         }
+
+//         if(graph[current].includes(end)){
+//             return true;
+//         }else{
+//             queue = [...queue, ...graph[current]]
+//         }
+//     }
+
+//     return false
+// }
+//4)
+function breadthSearch(graph, start, end){
     let queue = [];
+
     queue.push(start)
 
     while(queue.length > 0){
@@ -910,69 +1028,9 @@ function breadthSearch(graph, start, end) {
     return false
 }
  
+
+
 console.log(`breadthSearch(graph, 'a', 'e') `, breadthSearch(graph, 'a', 'e'))
-
-//-----------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------
-
-const _graph = {}
-_graph.a = {b: 2, c: 1}
-_graph.b = {f: 7}
-_graph.c = {d: 5, e: 2}
-_graph.d = {f: 2}
-_graph.e = {f: 1}
-_graph.f = {g: 1}
-_graph.g = {}
-
-function shortPath(graph, start, end) {
-    const costs = {}
-    const processed = []
-    let neighbors = {}
-    Object.keys(graph).forEach(node => {
-        if (node !== start) {
-            let value = graph[start][node]
-            costs[node] = value || 100000000
-        }
-    })
-    let node = findNodeLowestCost(costs, processed)
-    while (node) {
-        const cost = costs[node]
-        neighbors = graph[node]
-        Object.keys(neighbors).forEach(neighbor => {
-            let newCost = cost + neighbors[neighbor]
-            if (newCost < costs[neighbor]) {
-                costs[neighbor] = newCost
-            }
-        })
-        processed.push(node)
-        node = findNodeLowestCost(costs, processed)
-    }
-    return costs
-}
-
-
-function findNodeLowestCost(costs, processed) {
-    let lowestCost = 100000000
-    let lowestNode;
-    Object.keys(costs).forEach(node => {
-        let cost = costs[node]
-        if (cost < lowestCost && !processed.includes(node)) {
-            lowestCost = cost
-            lowestNode = node
-        }
-    })
-    return lowestNode
-}
-
-console.log(shortPath(_graph, 'a', 'g'));
 
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
@@ -1101,19 +1159,71 @@ console.log(recursive(tree))
 
 //3)
 
-function cashFunction(fn){
-    const cash = {}
+// function cashFunction(fn){
+//     const cash = {}
 
-    return function (n){
+//     return function (n){
+//         if(cash[n]){
+//             console.log('From cash', cash[n])
+//             return cash[n]
+//         }
+
+//         let result = fn(n)
+//         console.log('calc fn = ', result)
+//         cash[n] = result;
+//         return result
+//     }
+// }
+
+//4)
+
+// function cashFunction(fn){
+//     const cash = {}
+
+//     return function(n){
+//         if(cash[n]){
+//             console.log('from cash', cash[n])
+//             return cash[n]
+//         }
+
+//         let result = fn(n)
+//         console.log('calc fn = ', result)
+//         cash[n] = result;
+//         return result
+//     }
+// }
+
+//5)
+// function cashFunction(fn){
+//     const cash = {}
+
+//     return function(n){
+//         if(cash[n]){
+//             console.log('from cash', cash[n])
+//             return cash[n]
+//         }
+
+//         let result = fn(n)
+//         console.log('calc fn = ', result)
+//         cash[n] = result;
+//         return result
+//     }
+// }
+
+//6)
+function cashFunction(fn){
+    const cash = {};
+
+    return function(n){
         if(cash[n]){
-            console.log('From cash', cash[n])
+            console.log('from cash', cash[n])
             return cash[n]
         }
 
         let result = fn(n)
         console.log('calc fn = ', result)
         cash[n] = result;
-        return result
+        return result;
     }
 }
 
@@ -1137,8 +1247,13 @@ function cashFunction(fn){
 //     return result
 // }
 //3)
-const factorial = (n) => n <= 1? 1: factorial(n - 1) * n
-
+//const factorial = (n) => n <= 1? 1: factorial(n - 1) * n
+//4)
+//const factorial = (n) => n <= 1? 1 : factorial(n - 1) * n;
+//5)
+//const factorial = (n) => n <= 1? 1: factorial(n - 1) * n;
+//6)
+const factorial = (n) => n <= 1? 1: factorial(n -1 ) * n
 const cashFactorial = cashFunction(factorial)
 
 cashFactorial(5)
