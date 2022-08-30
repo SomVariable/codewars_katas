@@ -277,26 +277,70 @@ const array = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
 // }
 
 //12)
+// function binarySearch(array, item){
+//     let start     = 0,
+//         end       = array.length,
+//         middle    = 0,
+//         isFound   = false;
+    
+//     while(!isFound && start <= end){
+//         middle = Math.floor((start + end) / 2)
+
+//         if(array[middle] === item){
+//             isFound = true;
+//             return middle;
+//         }
+
+//         if(array[middle] > item){
+//             end = middle - 1;
+//         }else{
+//             start = middle + 1
+//         }
+//     } 
+// }
+//13)
+// function binarySearch(array, item){
+//     let start     = 0,
+//         end       = array.length,
+//         middle    = 0,
+//         isFound   = false;
+
+//     while(!isFound && start <= end){
+//         middle = Math.floor((start + end) / 2)
+
+//         if(array[middle] === item){
+//             isFound = true;
+//             return middle;
+//         }
+
+//         if(array[middle] > item){
+//             end = middle - 1;
+//         }else{
+//             start = middle + 1
+//         }
+//     }
+// }
+//15)
 function binarySearch(array, item){
-    let start     = 0,
-        end       = array.length,
-        middle    = 0,
-        isFound   = false;
+    let start      = 0,
+        end        = array.length,
+        middle     = 0,
+        isFound    = false;
     
     while(!isFound && start <= end){
         middle = Math.floor((start + end) / 2)
 
         if(array[middle] === item){
-            isFound = true;
+            isFount = true;
             return middle;
         }
 
         if(array[middle] > item){
-            end = middle - 1;
+            end = middle - 1
         }else{
             start = middle + 1
         }
-    } 
+    }
 }
 
 //1)
@@ -450,6 +494,50 @@ function binarySearch(array, item){
 // }
 
 //11)
+// function recursiveBinarySearch(array, item, start, end){
+//     let middle = Math.floor((start + end) / 2)
+
+//     if(array[middle] === item){
+//         return middle
+//     }
+
+//     if(array[middle] < item){
+//         return recursiveBinarySearch(array, item, middle + 1, end);
+//     }else{
+//         return recursiveBinarySearch(array, item, 0, middle - 1);
+//     }
+// }
+
+//12)
+// function recursiveBinarySearch(array, item, start, end){
+//     let middle = Math.floor((start + end) / 2)
+
+//     if(array[middle] === item){
+//         return middle;
+//     }
+
+//     if(array[middle] < item){
+//         return recursiveBinarySearch(array, item, middle + 1, end)
+//     }else{
+//         return recursiveBinarySearch(array, item, 0, middle - 1);
+//     }
+// }
+
+//13)
+// function recursiveBinarySearch(array, item, start, end){
+//     let middle = Math.floor((start + end) / 2)
+
+//     if(array[middle] === item){
+//         return middle
+//     }
+
+//     if(array[middle] < item){
+//         return recursiveBinarySearch(array, item, middle + 1, end)
+//     }else{
+//         return recursiveBinarySearch(array, item, 0, middle - 1)
+//     }
+// }
+//14)
 function recursiveBinarySearch(array, item, start, end){
     let middle = Math.floor((start + end) / 2)
 
@@ -458,10 +546,11 @@ function recursiveBinarySearch(array, item, start, end){
     }
 
     if(array[middle] < item){
-        return recursiveBinarySearch(array, item, middle + 1, end);
+        return recursiveBinarySearch(array, item, middle + 1, end)
     }else{
-        return recursiveBinarySearch(array, item, 0, middle - 1);
+        return recursiveBinarySearch(array, item, 0, middle - 1)
     }
+
 }
 
 console.log('binarySearch(array, 6) ', binarySearch(array, 6))
@@ -685,6 +774,42 @@ const arrForSort = [0,3,2,5,6,8,1,9,4,2,1,2,9,6,4,1,7,-1, -5, 23,6,2,35,6,3,32]
 // }
 
 //12)
+// function selectionSort(array){
+//     for(let i = 0; i < array.length; i++){
+//         let indexMin = i;
+
+//         for(let j = i + 1; j < array.length; j++){
+//             if(array[j] < array[indexMin]){
+//                 indexMin = j;
+//             }
+//         }
+//         let tmp = array[indexMin];
+//         array[indexMin] = array[i];
+//         array[i] = tmp;
+        
+//     }
+
+//     return array;
+// }
+//13)
+// function selectionSort(array){
+//     for(let i = 0; i < array.length; i++){
+//         let indexMin = i;
+
+//         for(let j = i + 1; j < array.length; j++){
+//             if(array[j] < array[indexMin]){
+//                 indexMin = j
+//             }
+//         }
+
+//         let tmp = array[indexMin];
+//         array[indexMin] = array[i];
+//         array[i] = tmp;
+//     }
+
+//     return array;
+// }
+//14)
 function selectionSort(array){
     for(let i = 0; i < array.length; i++){
         let indexMin = i;
@@ -694,10 +819,11 @@ function selectionSort(array){
                 indexMin = j;
             }
         }
+
+
         let tmp = array[indexMin];
         array[indexMin] = array[i];
         array[i] = tmp;
-        
     }
 
     return array;
@@ -831,6 +957,20 @@ const arrForSort2 = [0,3,2,5,6,8,1,9,4,2,1,2,9,6,4,1,7,-1, -5, 23,6,2,35,6,3,32]
 //     return array;
 // }
 //9)
+// function bubbleSort(array){
+//     for(let i = 0; i < array.length; i++){
+//         for(let j = 0; j < array.length; j++){
+//             if(array[j + 1] < array[j]){
+//                 const tmp = array[j + 1];
+//                 array[j + 1] = array[j];
+//                 array[j] = tmp;
+//             }
+//         }
+//     }
+
+//     return array
+// }
+//10)
 function bubbleSort(array){
     for(let i = 0; i < array.length; i++){
         for(let j = 0; j < array.length; j++){
@@ -842,7 +982,7 @@ function bubbleSort(array){
         }
     }
 
-    return array
+    return array;
 }
 
 console.log('bubbleSort(arrForSort2) ', bubbleSort(arrForSort2)) 
@@ -1053,6 +1193,29 @@ const arrForSort3 = [0,3,2,5,6,8,1,9,4,2,1,2,9,6,4,1,7,-1, -5, 23,6,2,35,6,3,32]
 //     return [...quickSort(less), pivot, ...quickSort(greater)]
 // }
 //9)
+// function quickSort(array){
+//     if(array.length <= 1){
+//         return array;
+//     }
+
+//     let pivotIndex = Math.floor(array.length / 2),
+//         pivot      = array[pivotIndex],
+//         greater    = [],
+//         less       = [];
+
+//     for(let i = 0; i < array.length; i++){
+//         if(i === pivotIndex) continue;
+
+//         if(array[i] < pivot){
+//             less.push(array[i])
+//         }else{
+//             greater.push(array[i])
+//         }
+//     }
+
+//     return [...quickSort(less), pivot, ...quickSort(greater)]
+// }
+//10)
 function quickSort(array){
     if(array.length <= 1){
         return array;
@@ -1224,6 +1387,50 @@ graph.f = ['g']
 // }
 
 //7)
+// function breadthSearch(graph, start, end){
+//     let queue = [];
+
+//     queue.push(start)
+
+//     while(queue.length > 0){
+//         const current = queue.shift();
+//         if(!graph[current]){
+//             graph[current] = []
+//         }
+
+//         if(graph[current].includes(end)){
+//             return true;
+//         }else{
+//             queue = [...queue, ...graph[current]]
+//         }
+//     }
+
+//     return false;
+// }
+
+//8)
+// function breadthSearch(graph, start, end){
+//     let queue = [];
+
+//     queue.push(start)
+
+//     while(queue.length > 0){
+//         const current = queue.shift();
+
+//         if(!graph[current]){
+//             graph[current] =[]
+//         }
+
+//         if(graph[current].includes(end)){
+//             return true;
+//         }else{
+//             queue = [...queue, ...graph[current]]
+//         }
+//     }
+
+//     return false;
+// }
+//9)
 function breadthSearch(graph, start, end){
     let queue = [];
 
@@ -1231,6 +1438,7 @@ function breadthSearch(graph, start, end){
 
     while(queue.length > 0){
         const current = queue.shift();
+
         if(!graph[current]){
             graph[current] = []
         }
@@ -1476,19 +1684,51 @@ console.log(recursive(tree))
 // }
 
 //9)
+// function cashFunction(fn){
+//     const cash = {}
+
+//     return function(n){
+//         if(cash[n]){
+//             console.log('from cash', cash[n])
+//             return cash[n];
+//         }
+
+//         let result = fn(n);
+//         console.log('calc fn = ', result)
+//         cash[n] = result;
+//         return result
+//     }
+// }
+//10)
+// function cashFunction(fn){
+//     const cash = {}
+
+//     return function(n){
+//         if(cash[n]){
+//             console.log('from cash', cash[n])
+//             return cash[n]
+//         }
+
+//         let result = fn(n);
+//         console.log('calc fn = ', result)
+//         cash[n] = result;
+//         return result;
+//     }
+// }
+//11)
 function cashFunction(fn){
-    const cash = {}
+    const cash = {};
 
     return function(n){
         if(cash[n]){
             console.log('from cash', cash[n])
-            return cash[n];
+            return cash[n]
         }
 
         let result = fn(n);
         console.log('calc fn = ', result)
         cash[n] = result;
-        return result
+        return result;
     }
 }
 
@@ -1522,6 +1762,8 @@ function cashFunction(fn){
 //7)
 //const factorial = (n) => n <= 1? 1 : factorial(n - 1) * n
 //8)
+//const factorial = (n) => n <= 1? 1: factorial(n - 1) * n;
+//9)
 const factorial = (n) => n <= 1? 1: factorial(n - 1) * n;
 const cashFactorial = cashFunction(factorial)
 
@@ -1579,20 +1821,52 @@ cashFactorial(1)
 //     }
 // }
 //2)
+// class LinkedList{
+//     constructor(){
+//         this.size = 0;
+//         this.root = null;
+//     }
+
+//     add(value) {
+//         if (this.size === 0) {
+//             this.root = new Node(value);
+//             this.size += 1;
+//             return true;
+//         }
+//         let node = this.root
+//         while (node.next) {
+//             node = node.next
+//         }
+//         let newNode = new Node(value)
+//         node.next = newNode
+//         this.size += 1
+//     }
+
+//     print() {
+//         let result = []
+//         let node = this.root
+//         while (node) {
+//             result.push(node.value)
+//             node = node.next
+//         }
+//         console.log(result);;
+//     }
+// }
+//3)
 class LinkedList{
     constructor(){
         this.size = 0;
         this.root = null;
     }
 
-    add(value) {
-        if (this.size === 0) {
+    add(value){
+        if(this.size === 0){
             this.root = new Node(value);
             this.size += 1;
             return true;
         }
-        let node = this.root
-        while (node.next) {
+        let node = this.root;
+        while(node.next){
             node = node.next
         }
         let newNode = new Node(value)
