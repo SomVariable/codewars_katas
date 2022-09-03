@@ -19,6 +19,8 @@
 //9)
 //const copyToClipboard = (text) => navigator.clipboard.writeText(text);
 //10)
+//const copyToClipboard = (text) => navigator.clipboard.writeText(text);
+//11)
 const copyToClipboard = (text) => navigator.clipboard.writeText(text);
 
 
