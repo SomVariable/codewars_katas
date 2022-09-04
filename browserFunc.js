@@ -21,6 +21,10 @@
 //10)
 //const copyToClipboard = (text) => navigator.clipboard.writeText(text);
 //11)
+//const copyToClipboard = (text) => navigator.clipboard.writeText(text);
+//12)
+//const copyToClipboard = (text) => navigator.clipboard.writeText(text);
+//13)
 const copyToClipboard = (text) => navigator.clipboard.writeText(text);
 
 
@@ -80,6 +84,8 @@ console.log('randomNumberInRange ', randomNumberInRange())
 //4)
 //const rgbToHex = (r, g, b) => "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 //5)
+//const rgbToHex = (r, g, b) => "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+//6)
 const rgbToHex = (r, g, b) => "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 console.log('rgbToHex ', rgbToHex(0, 51, 255)); 
 
@@ -107,7 +113,9 @@ console.log('rgbToHex ', rgbToHex(0, 51, 255));
 //6)
 //const goToTop = () => window.scrollTo(0, 0)
 //7)
-const goToTop = () => window.scrollTo(0, 0)
+//const goToTop = () => window.scrollTo(0, 0)
+//8)
+const gpToTop = () => window.scrollTo(0, 0);
 
 goToTop();
 
@@ -131,7 +139,11 @@ goToTop();
 //4)
 //const dayDif = (date1, date2) => Math.ceil(Math.abs(date1.getTime() - date2.getTime()) / 86400000)
 //5)
-const dayDif = (date1, date2) => Math.ceil(Math.abs(date1.getTime() - date2.getTime()) / 86400000)
+//const dayDif = (date1, date2) => Math.ceil(Math.abs(date1.getTime() - date2.getTime()) / 86400000)
+//6)
+//const dayDif = (data1, data2) => Math.ceil(Math.abs(data1.getTime() - data2.getTime()) / 86400000)
+//7)
+const dayDif = (date1, date2) => Math.ceil(Math.abs(date1.getDay() - date2.getDay()) / 86400000)
 console.log('dayDif ', dayDif(new Date("2020-10-21"), new Date("2021-10-22")))
 
 //-----------------------------------------------------------------------------------
@@ -180,6 +192,10 @@ console.log('randomHex ', randomHex());
 //6)
 //const isWeekday = date => date.getDay() % 6 !== 0;
 //7)
+//const isWeekday = date => date.getDay() % 6 !== 0;
+//8)
+//const isWeekday = date => date.getDay() % 6 !== 0;
+//9)
 const isWeekday = date => date.getDay() % 6 !== 0;
 console.log('isWeekday ', isWeekday(new Date(2021, 0, 11)));
 // Результат: true(понедельник)
