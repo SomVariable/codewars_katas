@@ -220,8 +220,11 @@ console.log('isWeekday ', isWeekday(new Date(2021, 0, 10)));
 // const celsiusToFahrenheit = (celsius) => celsius * 9/5 + 32;
 // const fahrenheitToCelsius = (fahrenheit) => (fahrenheit - 32) * 5/9;
 //3)
-const celsiusToFahrenheit = (celsius) => celsius * 9/5 + 32;
-const fahrenheitToCelsius = (fahrenheit) => (fahrenheit - 32) * 5/9;
+// const celsiusToFahrenheit = (celsius) => celsius * 9/5 + 32;
+// const fahrenheitToCelsius = (fahrenheit) => (fahrenheit - 32) * 5/9;
+//4)
+const celsiusToFahrenheit = (ceilius) => ceilius * 9/5 + 32;
+const fahrenheitToCelsius = (fahrenheit) => (fahrenheit - 32) * 5 / 9
 
 
 celsiusToFahrenheit(15);    // 59
