@@ -25,8 +25,11 @@
 //12)
 //const copyToClipboard = (text) => navigator.clipboard.writeText(text);
 //13)
+//const copyToClipboard = (text) => navigator.clipboard.writeText(text);
+//14)
+//const copyToClipboard = (text) => navigator.clipboard.writeText(text);
+//15)
 const copyToClipboard = (text) => navigator.clipboard.writeText(text);
-
 
 copyToClipboard("This Sring is Copied To Clipboard.");
 
@@ -59,9 +62,12 @@ copyToClipboard("This Sring is Copied To Clipboard.");
 //const randomNumberInRange = (min = 0, max = 100) => Math.floor(Math.random() * (max - min)) + min;
 //9)
 //const randomNumberInRange = (min = 0, max = 100) => Math.floor(Math.random() * (max - min)) + min;
-//10
-const randomNumberInRange = (min = 0, max = 100) => Math.floor(Math.random() * (max - min)) + min;
-
+//10)
+//const randomNumberInRange = (min = 0, max = 100) => Math.floor(Math.random() * (max - min)) + min;
+//11)
+//const randomNumberInRange = (min = 0, max = 100) => Math.floor(Math.random() * (max - min) + min)
+//12)
+const randomNumberInRange = (min = 0, max = 100) => Math.floor(Math.random() * (max - min) + min)
 console.log('randomNumberInRange ', randomNumberInRange())
 
 //-----------------------------------------------------------------------------------
@@ -86,6 +92,8 @@ console.log('randomNumberInRange ', randomNumberInRange())
 //5)
 //const rgbToHex = (r, g, b) => "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 //6)
+//const rgbToHex = (r, g, b) => "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+//7)
 const rgbToHex = (r, g, b) => "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 console.log('rgbToHex ', rgbToHex(0, 51, 255)); 
 
@@ -115,9 +123,10 @@ console.log('rgbToHex ', rgbToHex(0, 51, 255));
 //7)
 //const goToTop = () => window.scrollTo(0, 0)
 //8)
-const gpToTop = () => window.scrollTo(0, 0);
+//const goToTop = () => window.scrollTo(0, 0);
+//9)
 
-goToTop();
+const goToTop = () => window.scrollTo(0, 0);
 
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
@@ -143,7 +152,9 @@ goToTop();
 //6)
 //const dayDif = (data1, data2) => Math.ceil(Math.abs(data1.getTime() - data2.getTime()) / 86400000)
 //7)
-const dayDif = (date1, date2) => Math.ceil(Math.abs(date1.getDay() - date2.getDay()) / 86400000)
+//const dayDif = (date1, date2) => Math.ceil(Math.abs(date1.getDay() - date2.getDay()) / 86400000)
+//8)
+const dayDif = (date1, date2) => Math.ceil(Math.abs(date1.getDay() - date2.getDay()) / 86400000) 
 console.log('dayDif ', dayDif(new Date("2020-10-21"), new Date("2021-10-22")))
 
 //-----------------------------------------------------------------------------------
@@ -165,7 +176,9 @@ console.log('dayDif ', dayDif(new Date("2020-10-21"), new Date("2021-10-22")))
 //3)
 //const randomHex = () => `#${Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, "0")}`;
 //4)
-const randomHex = () => `#${Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, "0")}`;
+//const randomHex = () => `#${Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, "0")}`;
+//5)
+const randomHex = () => `#${Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, "0")}`
 console.log('randomHex ', randomHex());
 
 //-----------------------------------------------------------------------------------
@@ -196,6 +209,8 @@ console.log('randomHex ', randomHex());
 //8)
 //const isWeekday = date => date.getDay() % 6 !== 0;
 //9)
+//const isWeekday = date => date.getDay() % 6 !== 0;
+//10)
 const isWeekday = date => date.getDay() % 6 !== 0;
 console.log('isWeekday ', isWeekday(new Date(2021, 0, 11)));
 // Результат: true(понедельник)
@@ -262,6 +277,7 @@ console.log('isAppleDevice ', isAppleDevice);
 //10. Getting the time from the date
 //1)
 //const timeFromDate = date => date.toTimeString().slice(0, 8);
+//const timeFromDate = date => date.toTimeString().slice(0, 8)
 const timeFromDate = date => date.toTimeString().slice(0, 8)
 
 console.log('timeFromDate ', timeFromDate(new Date(2021, 0, 10, 17, 30, 0)));
@@ -286,7 +302,9 @@ console.log('timeFromDate ', timeFromDate(new Date(2021, 0, 10, 17, 30, 0)));
 //4) 
 //const stripHtml = html => (new DOMParser().parseFromString(html, 'text/html')).body.textContent || '';
 //5)
-const stripHtml = html => (new DOMParser().parseFromString(html, 'text/html')).body.textContent || '';
+//const stripHtml = html => (new DOMParser().parseFromString(html, 'text/html')).body.textContent || '';
+//6)
+const stringHtml = html => (new DOMParser().parseFromString(html, "text/html")).body.textContent || '';
 
 console.log('stripHtml ', stripHtml('<h1>Hello <strong>World</strong>!!!</h1>'));
 
