@@ -456,24 +456,47 @@ const array = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
 // }
 
 //21)
-function binarySearch(array, item){
-    let start       = 0,
-        end         = array.length,
-        middle      = 0,
-        isFound     = false;
+// function binarySearch(array, item){
+//     let start       = 0,
+//         end         = array.length,
+//         middle      = 0,
+//         isFound     = false;
 
+
+//     while(!isFound && start <= end){
+//         middle = Math.floor((start + end) / 2)
+
+
+//         if(array[middle] === item){
+//             isFound = true;
+//             return middle;
+//         }
+
+//         if(array[middle] > item){
+//             end = middle - 1;
+//         }else{
+//             start = middle + 1;
+//         }
+//     }
+// }
+
+//22)
+function binarySearch(array, item){
+    let start     = 0,
+        end       = array.length,
+        middle    = 0,
+        isFound   = false;
 
     while(!isFound && start <= end){
         middle = Math.floor((start + end) / 2)
 
-
         if(array[middle] === item){
-            isFound = true;
-            return middle;
+            isFound = true
+            return middle
         }
 
         if(array[middle] > item){
-            end = middle - 1;
+            end = middle -1
         }else{
             start = middle + 1;
         }
@@ -1744,6 +1767,124 @@ function quickSort(array){
 }
 
 console.log('quickSort(arrForSort3) ', quickSort(arrForSort3))
+
+//-----------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------
+//1)
+// const heapsort = arr => {
+//     const a = [...arr];
+//     let l = a.length;
+  
+//     const heapify = (a, i) => {
+//       const left = 2 * i + 1;
+//       const right = 2 * i + 2;
+//       let max = i;
+//       if (left < l && a[left] > a[max]) max = left;
+//       if (right < l && a[right] > a[max]) max = right;
+//       if (max !== i) {
+//         [a[max], a[i]] = [a[i], a[max]];
+//         heapify(a, max);
+//       }
+//     };
+  
+//     for (let i = Math.floor(l / 2); i >= 0; i -= 1) heapify(a, i);
+//     for (i = a.length - 1; i > 0; i--) {
+//       [a[0], a[i]] = [a[i], a[0]];
+//       l--;
+//       heapify(a, 0);
+//     }
+//     return a;
+//   };
+//2)
+// const heapsort = arr => {
+//     let length = arr.length
+
+//     const heapify = (arr, i) => {
+//         const left  = 2 * i + 1,
+//               right = 2 * i + 2;
+//         let max = i;
+//         if(left < length && arr[left] > arr[max]) max = left;
+//         if(right < length && arr[right] > arr[max]) max = right;
+//         if(max != i){
+//             [arr[max], arr[i]] = [arr[i], arr[max]];
+//             heapify(arr, max);
+//         }
+//     };
+
+//     for(let i = Math.floor(length / 2); i >= 0; i -= 1){
+//         heapify(arr, i)
+//     }
+//     for(let i = length - 1; i > 0; i--){
+//         [arr[0], arr[i]] = [arr[i], arr[0]];
+//         length--;
+//         heapify(arr, 0);
+//     }
+//     return arr;
+// }
+//3)
+// const heapsort = arr => {
+//     let length = arr.length;
+
+//     const heapify = (arr, i) => {
+//         const left  = 2 * i + 1,
+//               right = 2 * i + 2;
+//         let max = i;
+//         if(left < length && arr[left] > arr[max]) max =left;
+//         if(right < length && arr[right] > arr[max]) max = right;
+//         if(max != i){
+//             [arr[max], arr[i]] = [arr[i], arr[max]];
+//             heapify(arr, max);
+//         }
+//     }
+
+//     for(let i = Math.floor(length / 2); i >= 0; i -= 1){
+//         heapify(arr, i)
+//     }
+
+//     for(let i = length - 1; i > 0; i--){
+//         [arr[0], arr[i]] = [arr[i], arr[0]];
+//         length--;
+//         heapify(arr, 0)
+//     }
+//     return arr;
+// }
+//4)
+const heapsort = arr => {
+    let length = arr.length;
+
+    const haepify = (arr, i) => {
+        const left   = 2 * i + 1,
+              right  = 2 * i + 2;
+        let max = i;
+        if(left < length && arr[left] > arr[max]) max = left;
+        if(right < length && arr[right] > arr[max]) max = right;
+        if(max != i){
+            [arr[max], arr[i]] = [arr[i], arr[max]];
+            haepify(arr, max);
+        }
+    }
+    for(let i = Math.floor(length / 2); i >= 0; i -= 1){
+        haepify(arr, i);
+    }
+
+    for(let i = length -1;  i > 0; i--){
+        [arr[0], arr[i]] = [arr[i], arr[0]];
+        length--;
+        haepify(arr, 0)
+    }
+
+    return arr
+}
+
+  console.log('heapsort ', heapsort([0,3,2,5,6,8,1,9,4,2,1,2,9,6,4,1,7,-1, -5, 23,6,2,35,6,3,32]));
 
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
