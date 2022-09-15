@@ -1857,31 +1857,111 @@ console.log('quickSort(arrForSort3) ', quickSort(arrForSort3))
 //     return arr;
 // }
 //4)
+// const heapsort = arr => {
+//     let length = arr.length;
+
+//     const haepify = (arr, i) => {
+//         const left   = 2 * i + 1,
+//               right  = 2 * i + 2;
+//         let max = i;
+//         if(left < length && arr[left] > arr[max]) max = left;
+//         if(right < length && arr[right] > arr[max]) max = right;
+//         if(max != i){
+//             [arr[max], arr[i]] = [arr[i], arr[max]];
+//             haepify(arr, max);
+//         }
+//     }
+//     for(let i = Math.floor(length / 2); i >= 0; i -= 1){
+//         haepify(arr, i);
+//     }
+
+//     for(let i = length -1;  i > 0; i--){
+//         [arr[0], arr[i]] = [arr[i], arr[0]];
+//         length--;
+//         haepify(arr, 0)
+//     }
+
+//     return arr
+// }
+//5)
+// const heapsort = arr => {
+//     let length = arr.length;
+
+//     const heapify = (arr, i) => {
+//         const left    = 2 * i + 1,
+//               right   = 2 * i + 2;
+//         let max = i;
+//         if(left < length && arr[left] > arr[max]) max = left;
+//         if(right < length && arr[right] > arr[max]) max = right;
+//         if(max != i){
+//             [arr[max], arr[i]] = [arr[i], arr[max]];
+//             heapify(arr, max);
+//         }
+//     }
+//     for(let i = Math.floor(length / 2); i >= 0; i -= 1){
+//         heapify(arr, i)
+//     }
+
+//     for(let i = length - 1; i > 0; i--){
+//         [arr[0], arr[i]] = [arr[i], arr[0]];
+//         length--;
+//         heapify(arr, 0);
+//     }
+//     return arr
+// }
+//6)
+// const heapsort = arr => {
+//     let length = arr.length;
+
+//     const heapfiy = (arr, i) => {
+//         const left   = 2 * i + 1,
+//               right  = 2 * i + 2;
+//         let max = i;
+//         if(left < length && arr[left] > arr[max]) max = left;
+//         if(right < length && arr[right] > arr[max]) max = right;
+//         if(max != i){
+//             [arr[max], arr[i]] = [arr[i], arr[max]];
+//             heapfiy(arr, max);
+//         }
+//     }
+
+//     for(let i = Math.floor(length / 2); i >= 0; i -= 1){
+//         heapfiy(arr, i)
+//     }
+
+//     for(let i = length - 1; i > 0; i--){
+//         [arr[0], arr[i]] = [arr[i], arr[0]]
+//         length--;
+//         heapfiy(arr, 0)
+//     }
+//     return arr;
+// }
+//7)
 const heapsort = arr => {
     let length = arr.length;
 
-    const haepify = (arr, i) => {
+    const heapfiy = (arr, i) => {
         const left   = 2 * i + 1,
               right  = 2 * i + 2;
-        let max = i;
+              let max = i;
         if(left < length && arr[left] > arr[max]) max = left;
         if(right < length && arr[right] > arr[max]) max = right;
         if(max != i){
             [arr[max], arr[i]] = [arr[i], arr[max]];
-            haepify(arr, max);
+            heapfiy(arr, max);
         }
     }
+
     for(let i = Math.floor(length / 2); i >= 0; i -= 1){
-        haepify(arr, i);
+        heapfiy(arr, i)
     }
 
-    for(let i = length -1;  i > 0; i--){
+    for(let i = length -1; i > 0; i--){
         [arr[0], arr[i]] = [arr[i], arr[0]];
         length--;
-        haepify(arr, 0)
+        heapfiy(arr, 0)
     }
-
-    return arr
+    return arr;
 }
 
   console.log('heapsort ', heapsort([0,3,2,5,6,8,1,9,4,2,1,2,9,6,4,1,7,-1, -5, 23,6,2,35,6,3,32]));
@@ -2097,7 +2177,7 @@ graph.f = ['g']
 
 //     return false;
 // }
-//10
+//10)
 // function breadthSearch(graph, start, end){
 //     let queue = [];
 
@@ -2164,6 +2244,28 @@ graph.f = ['g']
 //     return false
 // }
 //13)
+// function breadthSearch(graph, start, end){
+//     let queue = [];
+
+//     queue.push(start)
+
+//     while(queue.length > 0){
+//         const current = queue.shift();
+
+//         if(!graph[current]){
+//             graph[current] = []
+//         }
+
+//         if(graph[current].includes(end)){
+//             return true;
+//         }else{
+//             queue = [...queue, ...graph[current]]
+//         }
+//     }
+
+//     return false
+// }
+//14)
 function breadthSearch(graph, start, end){
     let queue = [];
 
