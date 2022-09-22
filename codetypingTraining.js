@@ -503,24 +503,46 @@ const array = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
 //     }
 // }
 //23)
-function binarySearch(array, item){
-    let start   = 0,
-        end     = array.length,
-        middle  = 0,
-        isFound = false;
+// function binarySearch(array, item){
+//     let start   = 0,
+//         end     = array.length,
+//         middle  = 0,
+//         isFound = false;
     
+//     while(!isFound && start <= end){
+//         middle = Math.floor((start + end) / 2)
+
+//         if(array[middle] === item){
+//             isFound = true;
+//             return middle;
+//         }
+
+//         if(array[middle] > item){
+//             end = middle - 1;
+//         }else{
+//             start = middle + 1;
+//         }
+//     }
+// }
+//24)
+function binarySearch(arr, item){
+    let start     = 0,
+        end       = arr.length,
+        middle    = 0,
+        isFound   = false;
+
     while(!isFound && start <= end){
         middle = Math.floor((start + end) / 2)
 
-        if(array[middle] === item){
+        if(arr[middle] === item){
             isFound = true;
             return middle;
         }
 
-        if(array[middle] > item){
-            end = middle - 1;
+        if(arr[middle] > item){
+            end = middle - 1
         }else{
-            start = middle + 1;
+            start = middle + 1
         }
     }
 }
@@ -806,6 +828,20 @@ function binarySearch(array, item){
 //     }
 // }
 //20)
+// function recursiveBinarySearch(array, item, start, end){
+//     const middle = Math.floor((start + end) / 2)
+
+//     if(array[middle] === item){
+//         return middle;
+//     }
+
+//     if(array[middle] > item){
+//         return recursiveBinarySearch(array, item, start, middle - 1)
+//     }else{
+//         return recursiveBinarySearch(array, item, middle + 1, end)
+//     }
+// }
+//21)
 function recursiveBinarySearch(array, item, start, end){
     const middle = Math.floor((start + end) / 2)
 
@@ -1205,23 +1241,37 @@ const arrForSort = [0,3,2,5,6,8,1,9,4,2,1,2,9,6,4,1,7,-1, -5, 23,6,2,35,6,3,32]
 //     return array
 // }
 //21)
+// function selectionSort(array){
+//     for(let i = 0; i < array.length; i++){
+//         let indexMin = i;
+//         for(let j = i + 1; j < array.length; j++){
+//             if(array[j] < array[indexMin]){
+//                 indexMin = j
+//             }
+//         }
+
+//         let tmp = array[indexMin];
+//         array[indexMin] = array[i];
+//         array[i] = tmp
+//     }
+
+//     return array;
+// }
+//22)
 function selectionSort(array){
     for(let i = 0; i < array.length; i++){
         let indexMin = i;
         for(let j = i + 1; j < array.length; j++){
             if(array[j] < array[indexMin]){
-                indexMin = j
+                indexMin = j;
             }
         }
-
         let tmp = array[indexMin];
-        array[indexMin] = array[i];
-        array[i] = tmp
+        array[indexMin] = array[i]
+        array[i] = tmp;
     }
-
     return array;
 }
-
 
 console.log('selectionSort(arrForSort) ', selectionSort(arrForSort))
 
@@ -1447,6 +1497,19 @@ const arrForSort2 = [0,3,2,5,6,8,1,9,4,2,1,2,9,6,4,1,7,-1, -5, 23,6,2,35,6,3,32]
 //     return array
 // }
 //16)
+// function bubbleSort(array){
+//     for(let i = 0; i < array.length; i++){
+//         for(let j = 0; j < array.length; j++){
+//             if(array[j + 1] < array[j]){
+//                 const tmp = array[j + 1]
+//                 array[j + 1] = array[j]
+//                 array[j] = tmp;
+//             }
+//         }
+//     }
+//     return array;
+// }
+//17)
 function bubbleSort(array){
     for(let i = 0; i < array.length; i++){
         for(let j = 0; j < array.length; j++){
@@ -1459,6 +1522,7 @@ function bubbleSort(array){
     }
     return array;
 }
+
 console.log('bubbleSort(arrForSort2) ', bubbleSort(arrForSort2)) 
 
 
@@ -1831,6 +1895,29 @@ const arrForSort3 = [0,3,2,5,6,8,1,9,4,2,1,2,9,6,4,1,7,-1, -5, 23,6,2,35,6,3,32]
 //     return [...quickSort(less), pivot, ...quickSort(greater)]
 // }
 //16)
+// function quickSort(array){
+//     if(array.length <= 1){
+//         return array;
+//     }
+
+//     let pivotIndex = Math.floor(array.length / 2),
+//         pivot      = array[pivotIndex],
+//         less       = [],
+//         greater    = [];
+
+//     for(let i = 0; i < array.length; i++){
+//         if(i === pivotIndex) continue;
+
+//         if(array[i] < pivot){
+//             less.push(array[i])
+//         }else{
+//             greater.push(array[i])
+//         }
+//     }
+
+//     return [...quickSort(less), pivot, ...quickSort(greater)]
+// }
+//17)
 function quickSort(array){
     if(array.length <= 1){
         return array;
@@ -1840,7 +1927,7 @@ function quickSort(array){
         pivot      = array[pivotIndex],
         less       = [],
         greater    = [];
-
+    
     for(let i = 0; i < array.length; i++){
         if(i === pivotIndex) continue;
 
@@ -2135,23 +2222,79 @@ console.log('quickSort(arrForSort3) ', quickSort(arrForSort3))
 //     return arr
 // }
 //11)
+// const heapsort = arr => {
+//     let length = arr.length;
+
+//     const heapfiy = (array, i) => {
+//         const left  = 2 * i + 1,
+//               right = 2 * i + 2;
+//         let max = i;
+//         if(left < length && arr[left] > arr[max]) max = left;
+//         if(right < length && arr[right] > arr[max]) max = right;
+//         if(max != i){
+//             [arr[max], arr[i]] = [arr[i], arr[max]]
+//             heapfiy(arr, max);
+//         }
+//     }
+
+//     for(let i = Math.floor(length / 2); i >= 0; i--){
+//         heapfiy(arr, i);
+//     }
+
+//     for(let i = length - 1; i > 0; i--){
+//         [arr[0], arr[i]] = [arr[i], arr[0]]
+//         length--;
+//         heapfiy(arr, 0)
+//     }
+
+//     return arr
+// }
+//12)
+// const heapsort = arr => {
+//     let length = arr.length;
+
+//     const heapfiy = (arr, i) => {
+//         const left   = 2 * i + 1,
+//               right  = 2 * i + 2;
+//         let max = i;
+//         if(left < length && arr[left] > arr[max]) max = left;
+//         if(right < length && arr[right] > arr[max]) max = right;
+//         if(max !== i ){
+//             [arr[max], arr[i]] = [arr[i], arr[max]]
+//             heapfiy(arr, max);
+//         }
+//     }
+
+//     for(let i = Math.floor(length / 2); i >= 0; i--){
+//         heapfiy(arr, i)
+//     }
+
+//     for(let i = length -1; i > 0; i--){
+//         [arr[0], arr[i]] = [arr[i], arr[0]]
+//         length--;
+//         heapfiy(arr, 0)
+//     }
+
+//     return arr
+// }
+//13)
 const heapsort = arr => {
     let length = arr.length;
 
-    const heapfiy = (array, i) => {
-        const left  = 2 * i + 1,
-              right = 2 * i + 2;
+    const heapfiy = (arr, i) => {
+        const left     = 2 * i +  1,
+              right    = 2 * i +  2;
         let max = i;
         if(left < length && arr[left] > arr[max]) max = left;
         if(right < length && arr[right] > arr[max]) max = right;
-        if(max != i){
+        if(max !== i){
             [arr[max], arr[i]] = [arr[i], arr[max]]
             heapfiy(arr, max);
         }
     }
 
     for(let i = Math.floor(length / 2); i >= 0; i--){
-        heapfiy(arr, i);
+        heapfiy(arr, i)
     }
 
     for(let i = length - 1; i > 0; i--){
@@ -2160,7 +2303,7 @@ const heapsort = arr => {
         heapfiy(arr, 0)
     }
 
-    return arr
+    return arr;
 }
 
 
@@ -2510,8 +2653,51 @@ graph.f = ['g']
 //     return false;
 // }
 //16)
+// function breadthSearch(graph, start, end){
+//     let queue = [];
+
+//     queue.push(start)
+
+//     while(queue.length > 0){
+//         const current = queue.shift();
+
+//         if(!graph[current]){
+//             graph[current] = []
+//         }
+
+//         if(graph[current].includes(end)){
+//             return true;
+//         }else{
+//             queue = [...queue, ...graph[current]]
+//         }
+//     }
+
+//     return false;
+// }
+//17)
+// function breadthSearch(graph, start, end){
+//     let queue = [];
+//     queue.push(start)
+
+//     while(queue.length > 0){
+//         const current = queue.shift();
+
+//         if(!graph[current]){
+//             graph[current] = []
+//         }
+
+//         if(graph[current].includes(end)){
+//             return true;
+//         }else{
+//             queue = [...queue, ...graph[current]]
+//         }
+//     }
+
+//     return false;
+// }
+//18)
 function breadthSearch(graph, start, end){
-    let queue = [];
+    let queue = []
 
     queue.push(start)
 
@@ -2874,6 +3060,7 @@ console.log(recursive(tree))
 //         return result;
 //     }
 // }
+//16)
 function cashFunction(fn){
     const cash = {}
 
