@@ -1258,19 +1258,32 @@ const arrForSort = [0,3,2,5,6,8,1,9,4,2,1,2,9,6,4,1,7,-1, -5, 23,6,2,35,6,3,32]
 //     return array;
 // }
 //22)
-function selectionSort(array){
-    for(let i = 0; i < array.length; i++){
+// function selectionSort(array){
+//     for(let i = 0; i < array.length; i++){
+//         let indexMin = i;
+//         for(let j = i + 1; j < array.length; j++){
+//             if(array[j] < array[indexMin]){
+//                 indexMin = j;
+//             }
+//         }
+//         let tmp = array[indexMin];
+//         array[indexMin] = array[i]
+//         array[i] = tmp;
+//     }
+//     return array;
+// }
+//23)
+const selectionSort = arr => {
+    for(let i = 0; i < arr.length; i++){
         let indexMin = i;
-        for(let j = i + 1; j < array.length; j++){
-            if(array[j] < array[indexMin]){
+        for(let j = i + 1; j < arr.length; j++){
+            if(arr[j] < arr[indexMin]){
                 indexMin = j;
             }
         }
-        let tmp = array[indexMin];
-        array[indexMin] = array[i]
-        array[i] = tmp;
+        [arr[indexMin], arr[i]] = [arr[i], arr[indexMin]]
     }
-    return array;
+    return arr;
 }
 
 console.log('selectionSort(arrForSort) ', selectionSort(arrForSort))
@@ -2278,18 +2291,76 @@ console.log('quickSort(arrForSort3) ', quickSort(arrForSort3))
 //     return arr
 // }
 //13)
+// const heapsort = arr => {
+//     let length = arr.length;
+
+//     const heapfiy = (arr, i) => {
+//         const left     = 2 * i +  1,
+//               right    = 2 * i +  2;
+//         let max = i;
+//         if(left < length && arr[left] > arr[max]) max = left;
+//         if(right < length && arr[right] > arr[max]) max = right;
+//         if(max !== i){
+//             [arr[max], arr[i]] = [arr[i], arr[max]]
+//             heapfiy(arr, max);
+//         }
+//     }
+
+//     for(let i = Math.floor(length / 2); i >= 0; i--){
+//         heapfiy(arr, i)
+//     }
+
+//     for(let i = length - 1; i > 0; i--){
+//         [arr[0], arr[i]] = [arr[i], arr[0]]
+//         length--;
+//         heapfiy(arr, 0)
+//     }
+
+//     return arr;
+// }
+//14)
+// const heapsort = arr => {
+//     let length = arr.length;
+
+//     const heapfiy = (arr, i) => {
+//         const left    = 2 * i + 1,
+//               right   = 2 * i + 2;
+//         let max       = i;
+        
+//         if(left < length && arr[left] > arr[max]) max = left;
+//         if(right < length && arr[right] > arr[max]) max = right;
+//         if(max !== i){
+//             [arr[max], arr[i]] = [arr[i], arr[max]]
+//             heapfiy(arr, max);
+//         }
+//     }
+
+//     for(let i = Math.floor(length / 2); i >=0; i--){
+//         heapfiy(arr, i)
+//     }
+
+//     for(let i = length - 1; i > 0; i--){
+//         [arr[0], arr[i]] = [arr[i], arr[0]]
+//         length --;
+//         heapfiy(arr, 0)
+//     }
+
+//     return arr;
+// }
+//15)
 const heapsort = arr => {
     let length = arr.length;
 
     const heapfiy = (arr, i) => {
-        const left     = 2 * i +  1,
-              right    = 2 * i +  2;
-        let max = i;
-        if(left < length && arr[left] > arr[max]) max = left;
-        if(right < length && arr[right] > arr[max]) max = right;
+        const left    = 2 * i + 1,
+              right   = 2 * i + 2;
+        let max       = i;
+
+        if(left < length && arr[left] > arr[max]) max = left
+        if(right < length && arr[right] > arr[max]) max = right
         if(max !== i){
             [arr[max], arr[i]] = [arr[i], arr[max]]
-            heapfiy(arr, max);
+            heapfiy(arr, max)
         }
     }
 
@@ -2308,6 +2379,7 @@ const heapsort = arr => {
 
 
   console.log('heapsort ', heapsort([0,3,2,5,6,8,1,9,4,2,1,2,9,6,4,1,7,-1, -5, 23,6,2,35,6,3,32]));
+
 
 //-----------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------
