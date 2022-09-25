@@ -525,11 +525,33 @@ const array = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
 //     }
 // }
 //24)
+// function binarySearch(arr, item){
+//     let start     = 0,
+//         end       = arr.length,
+//         middle    = 0,
+//         isFound   = false;
+
+//     while(!isFound && start <= end){
+//         middle = Math.floor((start + end) / 2)
+
+//         if(arr[middle] === item){
+//             isFound = true;
+//             return middle;
+//         }
+
+//         if(arr[middle] > item){
+//             end = middle - 1
+//         }else{
+//             start = middle + 1
+//         }
+//     }
+// }
+//25)
 function binarySearch(arr, item){
-    let start     = 0,
-        end       = arr.length,
-        middle    = 0,
-        isFound   = false;
+    let start    = 0,
+        end      = arr.length,
+        middle   = 0,
+        isFound  = false;
 
     while(!isFound && start <= end){
         middle = Math.floor((start + end) / 2)
@@ -540,12 +562,13 @@ function binarySearch(arr, item){
         }
 
         if(arr[middle] > item){
-            end = middle - 1
+            end = middle - 1;
         }else{
-            start = middle + 1
+            start = middle + 1;
         }
     }
 }
+
 
 //1)
 // function recursiveBinarySearch(array, item, start, end) {
@@ -842,6 +865,21 @@ function binarySearch(arr, item){
 //     }
 // }
 //21)
+// function recursiveBinarySearch(array, item, start, end){
+//     const middle = Math.floor((start + end) / 2)
+
+//     if(array[middle] === item){
+//         return middle;
+//     }
+
+//     if(array[middle] > item){
+//         return recursiveBinarySearch(array, item, start, middle - 1)
+//     }else{
+//         return recursiveBinarySearch(array, item, middle + 1, end)
+//     }
+// }
+
+//22)
 function recursiveBinarySearch(array, item, start, end){
     const middle = Math.floor((start + end) / 2)
 
@@ -1273,6 +1311,19 @@ const arrForSort = [0,3,2,5,6,8,1,9,4,2,1,2,9,6,4,1,7,-1, -5, 23,6,2,35,6,3,32]
 //     return array;
 // }
 //23)
+// const selectionSort = arr => {
+//     for(let i = 0; i < arr.length; i++){
+//         let indexMin = i;
+//         for(let j = i + 1; j < arr.length; j++){
+//             if(arr[j] < arr[indexMin]){
+//                 indexMin = j;
+//             }
+//         }
+//         [arr[indexMin], arr[i]] = [arr[i], arr[indexMin]]
+//     }
+//     return arr;
+// }
+//24)
 const selectionSort = arr => {
     for(let i = 0; i < arr.length; i++){
         let indexMin = i;
@@ -1284,8 +1335,8 @@ const selectionSort = arr => {
         [arr[indexMin], arr[i]] = [arr[i], arr[indexMin]]
     }
     return arr;
-}
 
+}
 console.log('selectionSort(arrForSort) ', selectionSort(arrForSort))
 
 //-----------------------------------------------------------------------------------
@@ -1523,17 +1574,29 @@ const arrForSort2 = [0,3,2,5,6,8,1,9,4,2,1,2,9,6,4,1,7,-1, -5, 23,6,2,35,6,3,32]
 //     return array;
 // }
 //17)
-function bubbleSort(array){
-    for(let i = 0; i < array.length; i++){
-        for(let j = 0; j < array.length; j++){
-            if(array[j + 1] < array[j]){
-                const tmp = array[j + 1]
-                array[j + 1] = array[j]
-                array[j] = tmp;
+// function bubbleSort(array){
+//     for(let i = 0; i < array.length; i++){
+//         for(let j = 0; j < array.length; j++){
+//             if(array[j + 1] < array[j]){
+//                 const tmp = array[j + 1]
+//                 array[j + 1] = array[j]
+//                 array[j] = tmp;
+//             }
+//         }
+//     }
+//     return array;
+// }
+//18)
+const bubbleSort = arr => {
+    for(let i = 0; i < arr.length; i++){
+        for(let j = 0; j < arr.length; j++){
+            if(arr[j + 1] < arr[j]){
+                [arr[j + 1], arr[j]] = [arr[j], arr[j + 1]]
             }
         }
     }
-    return array;
+
+    return arr
 }
 
 console.log('bubbleSort(arrForSort2) ', bubbleSort(arrForSort2)) 
@@ -1931,28 +1994,50 @@ const arrForSort3 = [0,3,2,5,6,8,1,9,4,2,1,2,9,6,4,1,7,-1, -5, 23,6,2,35,6,3,32]
 //     return [...quickSort(less), pivot, ...quickSort(greater)]
 // }
 //17)
-function quickSort(array){
-    if(array.length <= 1){
-        return array;
+// function quickSort(array){
+//     if(array.length <= 1){
+//         return array;
+//     }
+
+//     let pivotIndex = Math.floor(array.length / 2),
+//         pivot      = array[pivotIndex],
+//         less       = [],
+//         greater    = [];
+    
+//     for(let i = 0; i < array.length; i++){
+//         if(i === pivotIndex) continue;
+
+//         if(array[i] < pivot){
+//             less.push(array[i])
+//         }else{
+//             greater.push(array[i])
+//         }
+//     }
+
+//     return [...quickSort(less), pivot, ...quickSort(greater)]
+// }
+//18)
+const quickSort = arr => {
+    if(arr.length <= 1){
+        return arr;
     }
 
-    let pivotIndex = Math.floor(array.length / 2),
-        pivot      = array[pivotIndex],
+    let pivotIndex = Math.floor(arr.length / 2),
+        pivot      = arr[pivotIndex],
         less       = [],
         greater    = [];
-    
-    for(let i = 0; i < array.length; i++){
-        if(i === pivotIndex) continue;
 
-        if(array[i] < pivot){
-            less.push(array[i])
+    for(let i = 0; i < arr.length; i++){
+        if(i === pivotIndex) continue
+        if(arr[i] < pivot){
+            less.push(arr[i])
         }else{
-            greater.push(array[i])
+            greater.push(arr[i])
         }
     }
 
     return [...quickSort(less), pivot, ...quickSort(greater)]
-}
+} 
 
 console.log('quickSort(arrForSort3) ', quickSort(arrForSort3))
 
