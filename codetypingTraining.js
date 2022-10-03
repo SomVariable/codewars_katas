@@ -547,24 +547,46 @@ const array = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
 //     }
 // }
 //25)
+// function binarySearch(arr, item){
+//     let start    = 0,
+//         end      = arr.length,
+//         middle   = 0,
+//         isFound  = false;
+
+//     while(!isFound && start <= end){
+//         middle = Math.floor((start + end) / 2)
+
+//         if(arr[middle] === item){
+//             isFound = true;
+//             return middle;
+//         }
+
+//         if(arr[middle] > item){
+//             end = middle - 1;
+//         }else{
+//             start = middle + 1;
+//         }
+//     }
+// }
+//26)
 function binarySearch(arr, item){
-    let start    = 0,
-        end      = arr.length,
-        middle   = 0,
-        isFound  = false;
+    let start     = 0,
+        end       = arr.length,
+        middle    = 0,
+        isFound   = false;
 
     while(!isFound && start <= end){
         middle = Math.floor((start + end) / 2)
 
         if(arr[middle] === item){
             isFound = true;
-            return middle;
+            return middle
         }
 
         if(arr[middle] > item){
-            end = middle - 1;
+            end = middle - 1
         }else{
-            start = middle + 1;
+            start = middle + 1
         }
     }
 }
@@ -880,6 +902,20 @@ function binarySearch(arr, item){
 // }
 
 //22)
+// function recursiveBinarySearch(array, item, start, end){
+//     const middle = Math.floor((start + end) / 2)
+
+//     if(array[middle] === item){
+//         return middle;
+//     }
+
+//     if(array[middle] > item){
+//         return recursiveBinarySearch(array, item, start, middle - 1)
+//     }else{
+//         return recursiveBinarySearch(array, item, middle + 1, end)
+//     }
+// }
+//23)
 function recursiveBinarySearch(array, item, start, end){
     const middle = Math.floor((start + end) / 2)
 
@@ -888,7 +924,7 @@ function recursiveBinarySearch(array, item, start, end){
     }
 
     if(array[middle] > item){
-        return recursiveBinarySearch(array, item, start, middle - 1)
+        return recursiveBinarySearch(array, item, start, middle -1)
     }else{
         return recursiveBinarySearch(array, item, middle + 1, end)
     }
@@ -1324,10 +1360,25 @@ const arrForSort = [0,3,2,5,6,8,1,9,4,2,1,2,9,6,4,1,7,-1, -5, 23,6,2,35,6,3,32]
 //     return arr;
 // }
 //24)
+// const selectionSort = arr => {
+//     for(let i = 0; i < arr.length; i++){
+//         let indexMin = i;
+//         for(let j = i + 1; j < arr.length; j++){
+//             if(arr[j] < arr[indexMin]){
+//                 indexMin = j;
+//             }
+//         }
+//         [arr[indexMin], arr[i]] = [arr[i], arr[indexMin]]
+//     }
+//     return arr;
+
+// }
+//
+//25)
 const selectionSort = arr => {
-    for(let i = 0; i < arr.length; i++){
+    for(let i = 0, l = arr.length; i < l; i++){
         let indexMin = i;
-        for(let j = i + 1; j < arr.length; j++){
+        for(let j = i + 1; j < l; j++){
             if(arr[j] < arr[indexMin]){
                 indexMin = j;
             }
@@ -1335,7 +1386,6 @@ const selectionSort = arr => {
         [arr[indexMin], arr[i]] = [arr[i], arr[indexMin]]
     }
     return arr;
-
 }
 console.log('selectionSort(arrForSort) ', selectionSort(arrForSort))
 
@@ -1587,15 +1637,26 @@ const arrForSort2 = [0,3,2,5,6,8,1,9,4,2,1,2,9,6,4,1,7,-1, -5, 23,6,2,35,6,3,32]
 //     return array;
 // }
 //18)
+// const bubbleSort = arr => {
+//     for(let i = 0; i < arr.length; i++){
+//         for(let j = 0; j < arr.length; j++){
+//             if(arr[j + 1] < arr[j]){
+//                 [arr[j + 1], arr[j]] = [arr[j], arr[j + 1]]
+//             }
+//         }
+//     }
+
+//     return arr
+// }
+//19)
 const bubbleSort = arr => {
-    for(let i = 0; i < arr.length; i++){
-        for(let j = 0; j < arr.length; j++){
+    for(let i = 0, l = arr.length; i < l; i++){
+        for(let j = 0; j < l; j++){
             if(arr[j + 1] < arr[j]){
                 [arr[j + 1], arr[j]] = [arr[j], arr[j + 1]]
             }
         }
     }
-
     return arr
 }
 
@@ -2017,6 +2078,28 @@ const arrForSort3 = [0,3,2,5,6,8,1,9,4,2,1,2,9,6,4,1,7,-1, -5, 23,6,2,35,6,3,32]
 //     return [...quickSort(less), pivot, ...quickSort(greater)]
 // }
 //18)
+// const quickSort = arr => {
+//     if(arr.length <= 1){
+//         return arr;
+//     }
+
+//     let pivotIndex = Math.floor(arr.length / 2),
+//         pivot      = arr[pivotIndex],
+//         less       = [],
+//         greater    = [];
+
+//     for(let i = 0; i < arr.length; i++){
+//         if(i === pivotIndex) continue
+//         if(arr[i] < pivot){
+//             less.push(arr[i])
+//         }else{
+//             greater.push(arr[i])
+//         }
+//     }
+
+//     return [...quickSort(less), pivot, ...quickSort(greater)]
+// } 
+//19)
 const quickSort = arr => {
     if(arr.length <= 1){
         return arr;
@@ -2037,7 +2120,7 @@ const quickSort = arr => {
     }
 
     return [...quickSort(less), pivot, ...quickSort(greater)]
-} 
+}
 
 console.log('quickSort(arrForSort3) ', quickSort(arrForSort3))
 
